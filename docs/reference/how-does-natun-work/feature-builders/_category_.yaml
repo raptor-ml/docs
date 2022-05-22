@@ -1,0 +1,4 @@
+position: 0 # float position is supported
+label: 'Feature Builders'
+collapsible: true # make the category collapsible
+collapsed: true # keep the category open by default
