@@ -1,9 +1,11 @@
 # Handler function
 
-Implementing features with PyExp is easy. The only thing you need to implement is the function `handler`:
+Implementing features with PyExp is easy.
+The only thing you need to implement is a handler function that either named _with the feature's name_ or `handler`.
+This function should accept *only* one argument of the kwargs:
 
 ```python
-def handler():
+def handler(**req):
     """Implement city feature"""
     return "Tel-Aviv"
 ```
@@ -23,15 +25,15 @@ I.e. the streaming features require you to return all the parameters since it's 
 :::
 
 ```python
-def handler():
+def handler(**req):
     """Implements count clicks from a stream of clicks"""
     """This feature has a `count` aggregation attached"""
-    return 1, timestamp, payload.client_id
+    return 1, req["timestamp"], req["payload"].client_id
 ```
 
-### Global variables
+### Input arguments via KWargs
 
-You should have access to the following global variables within your PyExp that has been passed by the feature builder:
+You should have access to the following inputs via the KWArgs argument that has been passed by the feature builder:
 
 | variable    | description                                                                                                                                                                                                                       |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

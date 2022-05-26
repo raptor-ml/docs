@@ -18,8 +18,8 @@ spec:
   builder:
     kind: expression
     pyexp: |-
-      def handler():
-         return "Hello world " + entity_id
+      def handler(**req):
+         return "Hello world " + req["entity_id"]
 ```
 
 The `spec` specifies how the feature should be calculated: we're using a simple expression [builder](../reference/how-does-natun-work/feature-builders/)
