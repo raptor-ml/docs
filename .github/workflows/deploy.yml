@@ -18,6 +18,23 @@ jobs:
           node-version: 17.x
           cache: yarn
 
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '^1.18'
+      - name: setup python
+        uses: actions/setup-python@v3
+      - name: convert ipynb
+        run: |
+          go install github.com/suntong/html2md@latest
+          python -m pip install jupyter nbconvert nbformat
+          for filename in docs/*.ipynb; do
+            jupyter nbconvert --to html ${filename}
+            fb="${filename%.*}"
+            html2md -F -G -T -L -i ${fb}.html > ${fb}.md
+            rm ${fb}.html
+          done
+        shell: bash
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build website
