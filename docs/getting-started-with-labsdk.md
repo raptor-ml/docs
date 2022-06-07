@@ -5,7 +5,7 @@ sidebar_position: 0
 
 <a href="https://colab.research.google.com/github/natun-ai/docs/blob/master/docs/getting-started-with-labsdk.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-We recommend starting with Natun using the LabSDK, which helping to create and to build production-grade features while developing your model.
+We recommend starting with Natun using the LabSDK, which helping to create and build production-grade features while developing your model.
 
 ## Intalling the SDK
 Yalla, let's go! The next two blocks install the LabSDK and imports it.
