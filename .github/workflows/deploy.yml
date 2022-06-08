@@ -19,11 +19,11 @@ jobs:
           cache: yarn
 
       - name: Convert ipynb files
-        uses: docker://pandoc/latex:2.9
+        uses: docker://pandoc/latex:2.18
         with:
           entrypoint: /bin/sh
           args: >-
-            -c "find ./docs/ -iname '*.ipynb' -type f -exec sh -c 'pandoc -t gfm+yaml_metadata_block+pipe_tables ${0} -o ${0%.ipynb}.md' {} \;"
+            -c "find ./docs/ -iname '*.ipynb' -type f -exec sh -c 'pandoc -t gfm+implicit_figures+yaml_metadata_block+pipe_tables ${0} -o ${0%.ipynb}.md' {} \;"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
