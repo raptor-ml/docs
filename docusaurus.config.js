@@ -16,7 +16,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.png',
+  favicon: 'img/icon.svg',
   organizationName: 'natun-ai', // Usually your GitHub org/user name.
   projectName: 'natun', // Usually your repo name.
   trailingSlash: false,
@@ -49,8 +49,8 @@ const config = {
     ({
       navbar: {
         logo: {
-          alt: 'Natun Logo',
-          src: 'img/logo.png',
+          alt: 'Natun',
+          src: 'img/logo.svg',
         },
         items: [
           {
@@ -76,8 +76,8 @@ const config = {
       footer: {
         style: 'dark',
         logo: {
-          alt: 'Natun Logo',
-          src: 'img/logo.png',
+          alt: 'Natun',
+          src: 'img/logo.svg',
         },
         copyright: `Copyright © ${new Date().getFullYear()} Natun.`,
         links: [
