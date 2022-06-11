@@ -1,11 +1,11 @@
 return {
     {
         Meta = function(meta)
-            if meta.jupyter.frontmatter then
-                for k, v in pairs(meta.jupyter.frontmatter) do
+            if meta.jupyter.docusaurus then
+                for k, v in pairs(meta.jupyter.docusaurus) do
                     meta[k] = v
                 end
-                meta.jupyter.frontmatter = nil
+                meta.jupyter.docusaurus = nil
             end
             return meta
         end,
