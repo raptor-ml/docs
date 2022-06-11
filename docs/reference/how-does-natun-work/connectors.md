@@ -1,10 +1,12 @@
 # Connectors
 
-Connectors define how can your Features draw data from external data sources. These can be streaming sources, analytical databases, CRM systems, and others. 
+Connectors define how can your Features draw data from external data sources. These can be streaming sources,
+analytical databases, CRM systems, and others. 
 
 
 
-Connectors define engineering and production aspects of ingesting the data, and are usually defined by the DevOps or DataOps teams in an organization. 
+Connectors define engineering and production aspects of ingesting the data, and are usually defined by the DevOps or
+DataOps teams in an organization. 
 
 
 
