@@ -6,13 +6,13 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6b2f8e;
-  --ifm-color-primary-dark: #602a80;
-  --ifm-color-primary-darker: #5b2879;
-  --ifm-color-primary-darkest: #4b2163;
-  --ifm-color-primary-light: #76349c;
-  --ifm-color-primary-lighter: #7b36a3;
-  --ifm-color-primary-lightest: #8b3db9;
+  --ifm-color-primary: #6d3c9a;
+  --ifm-color-primary-dark: #62368b;
+  --ifm-color-primary-darker: #5d3383;
+  --ifm-color-primary-darkest: #4c2a6c;
+  --ifm-color-primary-light: #7842a9;
+  --ifm-color-primary-lighter: #7d45b1;
+  --ifm-color-primary-lightest: #8d58be;
   --ifm-code-font-size: 95%;
 }
 .footer--dark {
@@ -39,4 +39,11 @@
 
 [data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.storyset-attribution {
+  margin-top: 2rem;
+  font-size: 70%;
+  font-style: italic;
+  text-align: right;
 }

@@ -1,7 +1,7 @@
 ---
 id: install
 title: Installing Natun on your Kubernetes cluster
-sidebar_position: 0
+sidebar_position: 5
 ---
 :::tip
 **Natun installation is not required for training purposes**.

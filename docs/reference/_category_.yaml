@@ -1,4 +1,4 @@
-position: -1 # float position is supported
+position: 999 # float position is supported
 label: 'Reference'
 collapsible: true # make the category collapsible
 collapsed: true # keep the category open by default

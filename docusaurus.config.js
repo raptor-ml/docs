@@ -10,8 +10,8 @@ const oembedTransformer = fauxOembedTransformer.default;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Natun Docs',
-  tagline: 'Serverless feature engineering',
+  title: 'Natun',
+  tagline: 'Serverless feature engineering - from notebook to production',
   url: 'https://docs.natun.ai',
   baseUrl: '/',
   onBrokenLinks: 'throw',
