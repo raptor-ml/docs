@@ -112,7 +112,7 @@ const config = {
               // },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/natun-ai',
+                href: 'https://twitter.com/natun_ai',
               },
             ],
           },
