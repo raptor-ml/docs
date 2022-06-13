@@ -48,6 +48,18 @@ the [OperatorHub installer](https://operatorhub.io/operator/natun).
 ## OperatorHub Installation
 
 ```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+   name: natun-providers-creds
+   namespace: natun-system
+data:
+   REDIS: "my-redis.default.svc.cluster.local"
+   AWS_ACCESS_KEY: ""
+   AWS_SECRET_KEY: ""
+   SNOWFLAKE_URI: <user>:<pass>@<account-id>/<db>/<schema>?warehouse=<warehouse-name>
+---
+apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: natun
@@ -60,9 +72,7 @@ spec:
         value: "snowflake"
     envFrom:
       - secretRef:
-          name: snowflake-credentials
-      - secretRef:
-          name: natun-redis-credentials
+          name: natun-providers-credentials
 ```
 
 ## Configuration Parameters
