@@ -6,7 +6,7 @@ Natun allows you to express your desired guarantees in a friendly form, and Natu
 
 When creating the Feature Definition, you specify three important values: **Freshness, Staleness, and Deadline.**
 
-![](../../../assets/sla.drawio.png)
+![](../../../assets/feature-sla.png)
 
 When a feature value is requested, Natun checks whether a value stored in its Feature Store is fresh. A feature value is considered fresh if the time it was calculated was at most "**Freshness**" ago. For example, if the Freshness definition for a feature is 1s, then any value that is less than 1 second old in the store can be returned immediately without recalculation. Any value older than 1 second ago is considered non-fresh.
 
