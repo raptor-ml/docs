@@ -1,3 +1,4 @@
+---
 title: The basics
 ---
 In this tutorial, we'll cover the basics of using the LabSDK to write features.
@@ -22,6 +23,7 @@ from natun.stub import *  # <-- this prevents the IDE/Notebookfrom detecting PyE
 Notice that we are also importing the `natun.stub` module. This is because the LabSDK is a Python library
 this is a way to prevent the IDE/Notebook from detecting [PyExp built-in](/docs/reference/pyexp/natun-built-ins) as
 errors.
+:::
 
 # Production mindset
 
@@ -48,7 +50,7 @@ def hello_world(**req: NatunRequest):
 
 Pretty simple right? let's go through what we did here line by line:
 
-1. We started by declaring the feature with the [`@natun.register`](/docs/reference/labsdk/decorators.md) decorator:
+1. We started by declaring the feature with the [`@natun.register`](/docs/reference/labsdk/decorators) decorator:
     1. We set the feature primitive type to `str` (the type of the feature's output).
     2. We set the feature's freshness to `1m` - that means that feature value that calculated `1 minute` ago, is
        considered as fresh, and doesn't need to be recalculated.
@@ -63,7 +65,7 @@ Pretty simple right? let's go through what we did here line by line:
     When feature is not fresh and not stale either - the value is considered as fair to use. In this case, we'll try to
     recalculate the value (and get a fresh result), but will default to the data we have if we couldn't make it.
     
-    For more information, check out the [Feature's SLA](/docs/reference/how-does-natun-work/features/feature-sla.md)
+    For more information, check out the [Feature's SLA](/docs/reference/how-does-natun-work/features/feature-sla)
     section.
     :::
 2. We defined the feature's logic, and named our feature `hello_world`.
@@ -120,7 +122,7 @@ Because Natun is act differently in "production" and "development" environments:
   in the next section.
 
 For now, we'll connect the feature in production-mode to a data-source by using
-the [`@natun.connector`](/docs/reference/labsdk/decorators.md) decorator:
+the [`@natun.connector`](/docs/reference/labsdk/decorators) decorator:
 
 ```python
 @natun.connector("user_names.default")

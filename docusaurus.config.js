@@ -60,8 +60,8 @@ const config = {
             label: 'Guides',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'reference',
+            type: 'doc',
+            docId: 'reference/how-does-natun-work/readme',
             position: 'left',
             label: 'Reference',
           },
@@ -78,6 +78,7 @@ const config = {
         logo: {
           alt: 'Natun',
           src: 'img/logo.svg',
+          height: 50,
         },
         copyright: `Copyright © ${new Date().getFullYear()} Natun.`,
         links: [
@@ -95,7 +96,7 @@ const config = {
             items: [
               {
                 label: 'Reference',
-                to: '/docs/reference/',
+                to: '/docs/reference/how-does-natun-work',
               },
             ],
           },

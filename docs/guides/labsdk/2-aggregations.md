@@ -1,8 +1,9 @@
+---
 title: Aggregations
 ---
 
 Aggregations are probably the most complex challenge while building a production-grade feature,
-they require a [special mechanism](/docs/reference/how-does-natun-work/features/aggregations.md) to handle the data in
+they require a [special mechanism](/reference/how-does-natun-work/features/aggregations.md) to handle the data in
 production, but are relatively easy to implement in development.
 
 Fortunately, it's relatively easy to build aggregations in Natun.
@@ -11,7 +12,7 @@ Fortunately, it's relatively easy to build aggregations in Natun.
 
 Aggregations are usually being calculated on a rolling window, I.e. The amount of clicks over the last hour.
 
-We can achieve that by using the [`@natun.aggr`](/docs/reference/labsdk/decorators.md#aggregate) decorator.
+We can achieve that by using the [`@natun.aggr`](/reference/labsdk/decorators.md#aggregate) decorator.
 
 ```python showLineNumbers
 @natun.register(int, freshness='1m', staleness='10h')
@@ -23,7 +24,7 @@ def clicks(**req: NatunRequest):
 
 Pretty simple right? let's go through what we did here line by line:
 
-1. We registered the feature with the [`@natun.register`](/docs/reference/labsdk/decorators.md) decorator:
+1. We registered the feature with the [`@natun.register`](/reference/labsdk/decorators.md) decorator:
     1. We set the feature primitive type to `int` (the type of the feature's output).
     2. We set the feature's freshness to `1m` - **that we're counting in a `1 minute` resolution**.
     3. We set the feature's staleness to `10h` - that means that the click will be stale after 10 hours, **and our
@@ -64,6 +65,6 @@ feature_get("deals_10h.default[sum]")
 Notice that we used here a `.default` suffix to the feature's FQN.
 The `default` is the name of the namespace the feature is configured to be in.
 
-When not specifying a namespace(using the [`@natun.namespace` decorator](/docs/reference/labsdk/decorators.md)), the
+When not specifying a namespace(using the [`@natun.namespace` decorator](/reference/labsdk/decorators.md)), the
 feature is configured to be in the `default` namespace.
 :::

@@ -1,7 +1,6 @@
 import DC from '@theme/DocCard';
-import { useDocById } from '@docusaurus/theme-common'
+import { useDocById } from '@docusaurus/theme-common/internal'
 import React from 'react'
-import clsx from "clsx";
 
 export default function DocCard({docId}:{docId:string}) {
   try {

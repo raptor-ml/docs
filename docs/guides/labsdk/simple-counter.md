@@ -1,3 +1,4 @@
+---
 title: Counters
 ---
 We can also build features that have a lifetime counter, like "lifetime views".
