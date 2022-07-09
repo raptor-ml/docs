@@ -54,10 +54,10 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'readme',
+            type: 'docSidebar',
+            sidebarId: 'guides',
             position: 'left',
-            label: 'Docs',
+            label: 'Guides',
           },
           {
             type: 'docSidebar',
@@ -82,11 +82,11 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Natun.`,
         links: [
           {
-            title: 'Docs',
+            title: 'Guides',
             items: [
               {
                 label: 'Getting started',
-                to: '/docs',
+                to: '/docs/guides/getting-started-with-labsdk',
               },
             ],
           },
@@ -95,7 +95,7 @@ const config = {
             items: [
               {
                 label: 'Reference',
-                to: '/docs/reference/spec',
+                to: '/docs/reference/',
               },
             ],
           },

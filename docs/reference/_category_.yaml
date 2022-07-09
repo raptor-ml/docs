@@ -2,6 +2,8 @@ position: 999 # float position is supported
 label: 'Reference'
 collapsible: true # make the category collapsible
 collapsed: true # keep the category open by default
-link: ~
+link:
+  type: generated-index
+  title: Tutorial overview
 customProps:
   description: This description can be used in the swizzled DocCard
