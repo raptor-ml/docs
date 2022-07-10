@@ -108,7 +108,7 @@ It's a dictionary that contains the following keys:
 2. `timestamp` - the time when the data was requested.
 3. `payload` - this is usually a dictionary that contains the relevant data from the connected data source.
 4. `headers` - this is a dictionary that contains the headers from the connected data source.
-   :::
+:::
 
 # Connecting the feature to data source
 
