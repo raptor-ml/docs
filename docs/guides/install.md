@@ -10,7 +10,7 @@ You need to install Natun *only when deploying to production* (or staging).
 
 # Prerequisites
 
-1. Kuberneres cluster
+1. Kubernetes cluster
 
    (You can use [Kind](https://kind.sigs.k8s.io/) to install Natun locally)
     1. `kubectl` installed and configured to your cluster.
