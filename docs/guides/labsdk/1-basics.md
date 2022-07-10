@@ -146,10 +146,10 @@ it is not always able to detect all the fields.
 
 We can use the following arguments to specify the fields that we want to use:
 
-    * `entity_id_field` - the field that contains the entity ID.
-    * `timestamp_field` - the field that contains the timestamp.
-    * `payload_field` - the field that contains the payload.
-    * `headers_field` - the field that contains the headers.
+* `entity_id_field` - the field that contains the entity ID.
+* `timestamp_field` - the field that contains the timestamp.
+* `payload_field` - the field that contains the payload.
+* `headers_field` - the field that contains the headers.
 :::
 
 
