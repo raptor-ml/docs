@@ -12,12 +12,12 @@ const oembedTransformer = fauxOembedTransformer.default;
 const config = {
   title: 'Natun',
   tagline: 'Serverless feature engineering - from notebook to production',
-  url: 'https://docs.natun.ai',
+  url: 'https://docs.raptor.ml',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/icon.svg',
-  organizationName: 'dataploy-ai', // Usually your GitHub org/user name.
+  organizationName: 'raptor-ml', // Usually your GitHub org/user name.
   projectName: 'natun', // Usually your repo name.
   trailingSlash: false,
   presets: [
@@ -29,13 +29,13 @@ const config = {
           remarkPlugins: [[remarkEmbedder, {transformers: [oembedTransformer]}]],
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/dataploy-ai/docs/tree/master/',
+          editUrl: 'https://github.com/raptor-ml/docs/tree/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/dataploy-ai/docs/tree/master/',
+            'https://github.com/raptor-ml/docs/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -67,7 +67,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/dataploy-ai/natun',
+            href: 'https://github.com/raptor-ml/natun',
             label: 'GitHub',
             position: 'right',
           },
@@ -126,7 +126,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/dataploy-ai/natun',
+                href: 'https://github.com/raptor-ml/natun',
               },
             ],
           },
