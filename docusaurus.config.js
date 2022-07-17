@@ -10,7 +10,7 @@ const oembedTransformer = fauxOembedTransformer.default;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Natun',
+  title: 'Raptor',
   tagline: 'Serverless feature engineering - from notebook to production',
   url: 'https://docs.raptor.ml',
   baseUrl: '/',
@@ -78,7 +78,7 @@ const config = {
         logo: {
           alt: 'Natun',
           src: 'img/logo.svg',
-          height: 50,
+          height: 80,
         },
         copyright: `Copyright © ${new Date().getFullYear()} Natun.`,
         links: [
@@ -113,7 +113,7 @@ const config = {
               // },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/natun_ai',
+                href: 'https://twitter.com/RaptorML',
               },
             ],
           },
