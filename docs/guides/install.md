@@ -1,18 +1,18 @@
 ---
 id: install
-title: Installing Natun on your Kubernetes cluster
+title: Installing Raptor on your Kubernetes cluster
 sidebar_position: 5
 ---
 :::tip
-**Natun installation is not required for training purposes**.
-You need to install Natun *only when deploying to production* (or staging).
+**Raptor installation is not required for training purposes**.
+You need to install Raptor *only when deploying to production* (or staging).
 :::
 
 # Prerequisites
 
 1. Kubernetes cluster
 
-   (You can use [Kind](https://kind.sigs.k8s.io/) to install Natun locally)
+   (You can use [Kind](https://kind.sigs.k8s.io/) to install Raptor locally)
     1. `kubectl` installed and configured to your cluster.
 2. Redis server
 
@@ -24,26 +24,26 @@ the [K8s Redis Operator](https://operatorhub.io/operator/redis-operator)
 
 ## Choosing your Historical Data Provider
 
-Historical Data Provider is the driver that Natun uses to save historical snapshots of your production data.
+Historical Data Provider is the driver that Raptor uses to save historical snapshots of your production data.
 This is very useful for training purposes, but *technically* is not required for production.
 
-At the moment, Natun supports the following historical data providers:
+At the moment, Raptor supports the following historical data providers:
 
-| Provider      | Data retrieval support | Description                                                       | Required configuration                                                                                                                                                |
-|---------------|------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *`snowflake`* | Yes                    | Historical data is stored in a Snowflake database                 | A valid snowflake URI shold be provided via the `snowflake-uri` configuration<br/> Example: username:password@account-id/NATUN_SYSTEM/HISTORICAL?warehouse=COMPUTE_WH |
-| `s3-parquet`  | No                     | Historical data is partitioned and stored in S3 in Parquet format | The following configurations should be set:<br/>`aws-access-key`, `aws-region`, `aws-secret-key`,`s3-basedir`, `s3-bucket`                                            | 
+| Provider      | Data retrieval support | Description                                                       | Required configuration                                                                                                                                                 |
+|---------------|------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *`snowflake`* | Yes                    | Historical data is stored in a Snowflake database                 | A valid snowflake URI shold be provided via the `snowflake-uri` configuration<br/> Example: username:password@account-id/RAPTOR_SYSTEM/HISTORICAL?warehouse=COMPUTE_WH |
+| `s3-parquet`  | No                     | Historical data is partitioned and stored in S3 in Parquet format | The following configurations should be set:<br/>`aws-access-key`, `aws-region`, `aws-secret-key`,`s3-basedir`, `s3-bucket`                                             | 
 
 :::warning
-It's highly recommended to use Kubernetes Secrets to store your credentials, and then to configure Natun's Deployment
+It's highly recommended to use Kubernetes Secrets to store your credentials, and then to configure Raptor's Deployment
 with
 Environment Variables.
 :::
 
-# Installing Natun
+# Installing Raptor
 
-There are a few ways to install Natun. The easiest way is to use
-the [OperatorHub installer](https://operatorhub.io/operator/natun).
+There are a few ways to install Raptor. The easiest way is to use
+the [OperatorHub installer](https://operatorhub.io/operator/raptor).
 
 ## OperatorHub Installation
 
@@ -51,8 +51,8 @@ the [OperatorHub installer](https://operatorhub.io/operator/natun).
 apiVersion: v1
 kind: Secret
 metadata:
-   name: natun-providers-creds
-   namespace: natun-system
+   name: raptor-providers-creds
+   namespace: raptor-system
 data:
    REDIS: "my-redis.default.svc.cluster.local"
    AWS_ACCESS_KEY: ""
@@ -62,9 +62,9 @@ data:
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: natun
+  name: raptor
 spec:
-  package: natun
+  package: raptor
   channel: alpha
   config:
     env:
@@ -72,12 +72,12 @@ spec:
         value: "snowflake"
     envFrom:
       - secretRef:
-          name: natun-providers-credentials
+          name: raptor-providers-credentials
 ```
 
 ## Configuration Parameters
 
-The configuration parameters below can be used to customize Natun deployments:
+The configuration parameters below can be used to customize Raptor deployments:
 
 ### Core Configuration
 
@@ -106,11 +106,11 @@ The configuration parameters below can be used to customize Natun deployments:
 | `--redis-sentinel-user`       | `REDIS_SENTINEL_USER`       | `string`       | Redis Sentinel username                                                                                                                                                            |
 | `--redis-tls`                 | `REDIS_TLS`                 | `bool`         | Enable TLS for Redis                                                                                                                                                               |
 | `--redis-user`                | `REDIS_USER`                | `string`       | Redis username                                                                                                                                                                     |
-| `--s3-basedir`                | `S3_BASEDIR`                | `string`       | S3 Base directory for storing features - for historical data (default "natun/features/")                                                                                           |
+| `--s3-basedir`                | `S3_BASEDIR`                | `string`       | S3 Base directory for storing features - for historical data (default "raptor/features/")                                                                                           |
 | `--s3-bucket`                 | `S3_BUCKET`                 | `string`       | S3 Bucket - for historical data                                                                                                                                                    |
 | `--snowflake-uri`             | `SNOWFLAKE_URI`             | `string`       | Snowflake DSN URI                                                                                                                                                                  |
 | `--state-provider`            | `STATE_PROVIDER`            | `string`       | The state provider. (default "redis")                                                                                                                                              |
-| `--usage-reporting`           | `USAGE_REPORTING`           | `bool`         | Allow us to anonymously report usage statistics to improve Natun 🪄 (default true)                                                                                                 |
+| `--usage-reporting`           | `USAGE_REPORTING`           | `bool`         | Allow us to anonymously report usage statistics to improve Raptor 🪄 (default true)                                                                                                 |
 | `--usage-reporting-uid`       | `USAGE_REPORTING_UID`       | `string`       | Usage reporting Unique Identifier. You can use this to set a unique identifier for your cluster.                                                                                   |
 | `--watch-namespaces`          | `WATCH_NAMESPACES`          | `stringArray`  | Enable namespace-level only by specify a list ofnamespaces that the operator is watching. If not specify, the operator will run on cluster level.                                  |
 | `--zap-devel`                 | `ZAP_DEVEL`                 | `bool`         | Development Mode defaults(encoder=consoleEncoder,logLevel=Debug,stackTraceLevel=Warn). Production Mode defaults(encoder=jsonEncoder,logLevel=Info,stackTraceLevel=Error)           |
@@ -141,7 +141,7 @@ The configuration parameters below can be used to customize Natun deployments:
 | `--redis-sentinel-user`        | `REDIS_SENTINEL_USER`        | string       | Redis Sentinel username                                                                                                                                                            |
 | `--redis-tls`                  | `REDIS_TLS`                  | bool         | Enable TLS for Redis                                                                                                                                                               |
 | `--redis-user`                 | `REDIS_USER`                 | string       | Redis username                                                                                                                                                                     |
-| `--s3-basedir`                 | `S3_BASEDIR`                 | string       | S3 Base directory for storing features - for historical data (default "natun/features/")                                                                                           |
+| `--s3-basedir`                 | `S3_BASEDIR`                 | string       | S3 Base directory for storing features - for historical data (default "raptor/features/")                                                                                           |
 | `--s3-bucket`                  | `S3_BUCKET`                  | string       | S3 Bucket - for historical data                                                                                                                                                    |
 | `--snowflake-uri`              | `SNOWFLAKE_URI`              | string       | Snowflake DSN URI                                                                                                                                                                  |
 | `--state-provider`             | `STATE_PROVIDER`             | string       | The state provider. (default "redis")                                                                                                                                              |

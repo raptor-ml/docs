@@ -9,25 +9,25 @@ In order to use the LabSDK, you need to install it. The recommended way is to us
 the [`pip`](https://pip.pypa.io/en/stable/) utility:
 
 ```bash
-pip install --upgrade natun-labsdk
+pip install --upgrade raptor-labsdk
 ```
 
 To use the LabSDK, you need to import it:
 
 ```python
-import natun
-from natun.stub import *  # <-- this prevents the IDE/Notebookfrom detecting PyExp built-in as errors
+import raptor
+from raptor.stub import *  # <-- this prevents the IDE/Notebookfrom detecting PyExp built-in as errors
 ```
 
 :::note
-Notice that we are also importing the `natun.stub` module. This is because the LabSDK is a Python library
-this is a way to prevent the IDE/Notebook from detecting [PyExp built-in](/docs/reference/pyexp/natun-built-ins) as
+Notice that we are also importing the `raptor.stub` module. This is because the LabSDK is a Python library
+this is a way to prevent the IDE/Notebook from detecting [PyExp built-in](/docs/reference/pyexp/raptor-built-ins) as
 errors.
 :::
 
 # Production mindset
 
-With Natun, we're building features that are ready to be deployed and run in production. That's means that in production
+With Raptor, we're building features that are ready to be deployed and run in production. That's means that in production
 , unlike when we're looking at historical data, we can't see the future.
 
 Because of that, when we're calculating features we need to think about the data we have available, and work in the
@@ -42,15 +42,15 @@ The very first feature we'll build is the `Hello world` feature. It's a simple f
 returns the string `"Hello world"`:
 
 ```python showLineNumbers
-@natun.register(str, freshness='1m', staleness='10h')
-def hello_world(**req: NatunRequest):
+@raptor.register(str, freshness='1m', staleness='10h')
+def hello_world(**req: RaptorRequest):
     """this is a hello world feature"""
     return "hello world"
 ```
 
 Pretty simple right? let's go through what we did here line by line:
 
-1. We started by declaring the feature with the [`@natun.register`](/docs/reference/labsdk/decorators) decorator:
+1. We started by declaring the feature with the [`@raptor.register`](/docs/reference/labsdk/decorators) decorator:
     1. We set the feature primitive type to `str` (the type of the feature's output).
     2. We set the feature's freshness to `1m` - that means that feature value that calculated `1 minute` ago, is
        considered as fresh, and doesn't need to be recalculated.
@@ -65,7 +65,7 @@ Pretty simple right? let's go through what we did here line by line:
     When feature is not fresh and not stale either - the value is considered as fair to use. In this case, we'll try to
     recalculate the value (and get a fresh result), but will default to the data we have if we couldn't make it.
     
-    For more information, check out the [Feature's SLA](/docs/reference/how-does-natun-work/features/feature-sla)
+    For more information, check out the [Feature's SLA](/docs/reference/how-does-raptor-work/features/feature-sla)
     section.
     :::
 2. We defined the feature's logic, and named our feature `hello_world`.
@@ -75,9 +75,9 @@ Pretty simple right? let's go through what we did here line by line:
 
 :::note What's PyExp?
 PyExp is a variant of Python. It's allows us to compile your code, and run it in scale while running in "production mode".
-This way, you can keep focus on the business-logic, while Natun takes care of the production optimizations.
+This way, you can keep focus on the business-logic, while Raptor takes care of the production optimizations.
 
-For more information, check out the [PyExp](/docs/reference/pyexp/natun-built-ins) section.
+For more information, check out the [PyExp](/docs/reference/pyexp/raptor-built-ins) section.
 :::
 
 # Greeter feature
@@ -90,8 +90,8 @@ entity `user`.
 :::
 
 ```python showLineNumbers
-@natun.register(str, freshness='1m', staleness='10h')
-def greeter(**req: NatunRequest):
+@raptor.register(str, freshness='1m', staleness='10h')
+def greeter(**req: RaptorRequest):
     """this is a greeter feature"""
     return "Hello world " + req["entity_id"]
 ```
@@ -114,7 +114,7 @@ It's a dictionary that contains the following keys:
 
 So far so good, but in real life we used to have a data that is helping us to calculate the feature.
 
-Because Natun is act differently in "production" and "development" environments:
+Because Raptor is act differently in "production" and "development" environments:
 
 - **In production**, we'll connect a data source to the feature. When running in production, the platform will
   automatically calculate the feature values when needed, and use the data source to get the data.
@@ -122,10 +122,10 @@ Because Natun is act differently in "production" and "development" environments:
   in the next section.
 
 For now, we'll connect the feature in production-mode to a data-source by using
-the [`@natun.connector`](/docs/reference/labsdk/decorators) decorator:
+the [`@raptor.connector`](/docs/reference/labsdk/decorators) decorator:
 
 ```python
-@natun.connector("user_names.default")
+@raptor.connector("user_names.default")
 ```
 
 # Replaying the feature calculations
@@ -141,7 +141,7 @@ greeter.replay(df, entity_id_field="name")
 ```
 
 :::note
-Although the `replay` function automatically detect some fields from the dataframe and set them in the NatunRequest, it's
+Although the `replay` function automatically detect some fields from the dataframe and set them in the RaptorRequest, it's
 it is not always able to detect all the fields.
 
 We can use the following arguments to specify the fields that we want to use:

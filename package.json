@@ -11,7 +11,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "ipynb2md": "find ./docs/ -iname '*.ipynb' -type f -exec sh -c 'pandoc --lua-filter=.github/pandoc_ipynb_meta.lua --standalone -t gfm+implicit_figures+yaml_metadata_block+pipe_tables ${0} -o ${0%.ipynb}.md' {} \\;"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-rc.1",

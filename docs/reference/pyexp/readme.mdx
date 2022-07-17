@@ -7,7 +7,7 @@ import DocCard from '@site/src/components/DocCard'
 
 # Python Expression Language (PyExp)
 
-Some feature builders allow us to express our feature's "business logic" via Natun's Python Expression (PyExp) Language.
+Some feature builders allow us to express our feature's "business logic" via Raptor's Python Expression (PyExp) Language.
 
 :::success
 Using PyExp, we can benefit from a deterministic, secure, and production-grade sandboxing of the code for your business logic.
@@ -56,16 +56,16 @@ For more information read:
 <DocCard docId="reference/pyexp/handler-function" />
 
 
-In addition, you can use the [natun built-ins](pyexp/natun-built-ins/) in order to depend on other features (and leverage that for "joins" like features), or do complex transformations.
+In addition, you can use the [raptor built-ins](pyexp/raptor-built-ins/) in order to depend on other features (and leverage that for "joins" like features), or do complex transformations.
 
 
 for more information read:
 
-<DocCard docId="reference/pyexp/natun-built-ins/readme" />
+<DocCard docId="reference/pyexp/raptor-built-ins/readme" />
 
 ## PyExp in production
 
-After a feature is being deployed to the cluster, Natun will compile your PyExp code into bytecode. This process allows us to run your PyExp in a dedicated runtime sandbox and provide us with a production-ready code that is safe, reproducible, and deterministic.
+After a feature is being deployed to the cluster, Raptor will compile your PyExp code into bytecode. This process allows us to run your PyExp in a dedicated runtime sandbox and provide us with a production-ready code that is safe, reproducible, and deterministic.
 
 ![PEL compilation process](../../assets/docs-PyExp.drawio.png)
 

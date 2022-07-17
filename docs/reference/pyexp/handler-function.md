@@ -15,7 +15,7 @@ You can return multiple parameters via the return statements.
 | field | description                                    | default value                                                                                                                         |
 |-------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | Value - the returned value for the expression. |                                                                                                                                       |
-| 2     | Timestamp - the timestamp of the digestment.   | Now(When set to None, Natun will default it to the current timestamp)                                                                 |
+| 2     | Timestamp - the timestamp of the digestment.   | Now(When set to None, Raptor will default it to the current timestamp)                                                                 |
 | 3     | Entity ID - the entity ID of the feature       | Synchronous digestment:Defaulted to the requested entity_id of the feature digestment request.Asynchronous digstment:This is required |
 
 :::danger

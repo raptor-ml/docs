@@ -1,6 +1,6 @@
-# Natun Built-ins
+# Raptor Built-ins
 
-Natun has implemented a few built-in functions in the PyExp Runtime that can help you integrate feature operations in your code:
+Raptor has implemented a few built-in functions in the PyExp Runtime that can help you integrate feature operations in your code:
 
 ### Get Feature
 

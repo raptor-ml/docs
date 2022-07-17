@@ -14,14 +14,14 @@ When using the LabSDK, you can create a feature set by using
 the [`feature_set()`](/docs/reference/labsdk/featureset.md) decorator:
 
 ```python showLineNumbers
-@natun.feature_set()
+@raptor.feature_set()
 def my_feature_set():
     """this is a my feature set"""
     return hello_world, "feature_with_aggr.default[sum]"
 ```
 
 When defining a feature set, we simply create a function that return a tuple.
-Each element of the tuple is either a feature function, or an [FQN](/docs/reference/how-does-natun-work/fqn) of a
+Each element of the tuple is either a feature function, or an [FQN](/docs/reference/how-does-raptor-work/fqn) of a
 feature function.
 
 :::note When should we use FQNs?
@@ -50,7 +50,7 @@ The key feature is defined as the **first** feature in the feature set. Alternat
 the options of the decorator:
 
 ```python showLineNumbers
-@natun.feature_set(options={'key_feature': 'feature_1'})
+@raptor.feature_set(options={'key_feature': 'feature_1'})
 def my_feature_set():
     """this is a my feature set"""
     return hello_world, "feature_with_aggr.default[sum]", "feature_1"

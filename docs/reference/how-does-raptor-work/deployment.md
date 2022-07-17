@@ -1,10 +1,10 @@
 # Deployment
 
-All of Natun's resources are defined as Kubernetes compatible YAML manifests.
+All of Raptor's resources are defined as Kubernetes compatible YAML manifests.
 Users store them in a source control repository, pass them through a code review process, easily diff them to
 see changes, and eventually deploy them to a **Kubernetes Cluster**.
 
-The actual method of deployment is outside of Natun's scope, but is compatible with whatever method is used in your
+The actual method of deployment is outside of Raptor's scope, but is compatible with whatever method is used in your
 company - from manual deployment using `kubectl apply` through manually triggered Jenkins jobs and up to fully automated
 Continuous Deployment solutions such as ArgoCD.
 

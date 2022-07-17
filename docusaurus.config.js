@@ -18,7 +18,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/icon.svg',
   organizationName: 'raptor-ml', // Usually your GitHub org/user name.
-  projectName: 'natun', // Usually your repo name.
+  projectName: 'raptor', // Usually your repo name.
   trailingSlash: false,
   presets: [
     [
@@ -49,7 +49,7 @@ const config = {
     ({
       navbar: {
         logo: {
-          alt: 'Natun',
+          alt: 'Raptor',
           src: 'img/logo.svg',
         },
         items: [
@@ -61,13 +61,13 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'reference/how-does-natun-work/readme',
+            docId: 'reference/how-does-raptor-work/readme',
             position: 'left',
             label: 'Reference',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/raptor-ml/natun',
+            href: 'https://github.com/raptor-ml/raptor',
             label: 'GitHub',
             position: 'right',
           },
@@ -76,11 +76,11 @@ const config = {
       footer: {
         style: 'dark',
         logo: {
-          alt: 'Natun',
+          alt: 'Raptor',
           src: 'img/logo.svg',
           height: 80,
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Natun.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Raptor.`,
         links: [
           {
             title: 'Guides',
@@ -96,7 +96,7 @@ const config = {
             items: [
               {
                 label: 'Reference',
-                to: '/docs/reference/how-does-natun-work',
+                to: '/docs/reference/how-does-raptor-work',
               },
             ],
           },
@@ -126,7 +126,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/raptor-ml/natun',
+                href: 'https://github.com/raptor-ml/raptor',
               },
             ],
           },
