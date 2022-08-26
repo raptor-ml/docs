@@ -14,7 +14,7 @@ You need to install Raptor *only when deploying to production* (or staging).
 
    (You can use [Kind](https://kind.sigs.k8s.io/) to install Raptor locally)
     1. `kubectl` installed and configured to your cluster.
-2. Redis server
+2. Redis server (> 2.8.9)
 
 :::tip
 You can also use a managed Redis solution such as [AWS ElasticCache](https://aws.amazon.com/elasticache/)
@@ -106,11 +106,11 @@ The configuration parameters below can be used to customize Raptor deployments:
 | `--redis-sentinel-user`       | `REDIS_SENTINEL_USER`       | `string`       | Redis Sentinel username                                                                                                                                                            |
 | `--redis-tls`                 | `REDIS_TLS`                 | `bool`         | Enable TLS for Redis                                                                                                                                                               |
 | `--redis-user`                | `REDIS_USER`                | `string`       | Redis username                                                                                                                                                                     |
-| `--s3-basedir`                | `S3_BASEDIR`                | `string`       | S3 Base directory for storing features - for historical data (default "raptor/features/")                                                                                           |
+| `--s3-basedir`                | `S3_BASEDIR`                | `string`       | S3 Base directory for storing features - for historical data (default "raptor/features/")                                                                                          |
 | `--s3-bucket`                 | `S3_BUCKET`                 | `string`       | S3 Bucket - for historical data                                                                                                                                                    |
 | `--snowflake-uri`             | `SNOWFLAKE_URI`             | `string`       | Snowflake DSN URI                                                                                                                                                                  |
 | `--state-provider`            | `STATE_PROVIDER`            | `string`       | The state provider. (default "redis")                                                                                                                                              |
-| `--usage-reporting`           | `USAGE_REPORTING`           | `bool`         | Allow us to anonymously report usage statistics to improve Raptor 🪄 (default true)                                                                                                 |
+| `--usage-reporting`           | `USAGE_REPORTING`           | `bool`         | Allow us to anonymously report usage statistics to improve Raptor 🪄 (default true)                                                                                                |
 | `--usage-reporting-uid`       | `USAGE_REPORTING_UID`       | `string`       | Usage reporting Unique Identifier. You can use this to set a unique identifier for your cluster.                                                                                   |
 | `--watch-namespaces`          | `WATCH_NAMESPACES`          | `stringArray`  | Enable namespace-level only by specify a list ofnamespaces that the operator is watching. If not specify, the operator will run on cluster level.                                  |
 | `--zap-devel`                 | `ZAP_DEVEL`                 | `bool`         | Development Mode defaults(encoder=consoleEncoder,logLevel=Debug,stackTraceLevel=Warn). Production Mode defaults(encoder=jsonEncoder,logLevel=Info,stackTraceLevel=Error)           |
@@ -141,7 +141,7 @@ The configuration parameters below can be used to customize Raptor deployments:
 | `--redis-sentinel-user`        | `REDIS_SENTINEL_USER`        | string       | Redis Sentinel username                                                                                                                                                            |
 | `--redis-tls`                  | `REDIS_TLS`                  | bool         | Enable TLS for Redis                                                                                                                                                               |
 | `--redis-user`                 | `REDIS_USER`                 | string       | Redis username                                                                                                                                                                     |
-| `--s3-basedir`                 | `S3_BASEDIR`                 | string       | S3 Base directory for storing features - for historical data (default "raptor/features/")                                                                                           |
+| `--s3-basedir`                 | `S3_BASEDIR`                 | string       | S3 Base directory for storing features - for historical data (default "raptor/features/")                                                                                          |
 | `--s3-bucket`                  | `S3_BUCKET`                  | string       | S3 Bucket - for historical data                                                                                                                                                    |
 | `--snowflake-uri`              | `SNOWFLAKE_URI`              | string       | Snowflake DSN URI                                                                                                                                                                  |
 | `--state-provider`             | `STATE_PROVIDER`             | string       | The state provider. (default "redis")                                                                                                                                              |

@@ -11,8 +11,8 @@ business logic of the feature and some metadata about it.
 
 Feature Definitions become **live** once they are [**Deployed**](deployment/) into a Kubernetes cluster.
 This can be a production cluster or one dedicated for staging or experimentation.
-Once the feature is deployed, Raptor will spin up the necessary workers, stores and connections to calculate feature values
-and make sure your feature values are available to your models.
+Once the feature is deployed, Raptor will spin up the necessary workers, stores and connections to calculate feature
+values and make sure your feature values are available to your models.
 
 [**Feature Values**](./features/feature-values) are the results of the computation and inputs of the feature.
 Feature Values have a Primitive Type (int, float, string, or a list of ints, floats, or strings), and in some cases are
