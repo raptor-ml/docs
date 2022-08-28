@@ -1,0 +1,122 @@
+---
+sidebar_label: "Tutorial: Building Your First Feature"
+sidebar_position: 2
+---
+import DocCard from '@site/src/components/DocCard'
+
+
+# Walkthrough: Building your first Feature
+
+## Background
+
+Imagine that your company has a product checkout page, and you've identified an opportunity to increase sales by recommending "similar" or "related" products to the customer at checkout.
+
+In order to allow you to play with Natun, we've put in place [a mock website](welcome/the-mock-website.md) named "MassiveDynamic".
+
+To prevent fraud, MassiveDynamic decided to develop an ML model that predicts if a transaction is fraudulent based on a certain set of features such as: past purchases, country, user's age, and the number of clicks over the last 20 minutes.
+
+### Building our first feature
+
+Let's create a "user clicks" feature that counts in "real-time" how many clicks has the user clicked over the last 20 minutes on the checkout page.
+
+## Tutorial Video
+
+https://www.youtube.com/watch?v=M7PhXuVJlpQ
+
+## Walkthrough
+
+### Creating a feature
+
+**Open the Natun IDE at** [**natun.massivedynamic.ml**](https://natun.massivedynamic.ml)****
+
+1. Click on "Features" in the sidebar - you can see all the currently deployed features on this screen.
+2. Click on the "+ Create a Feature" button on the top of the features screen.
+3. A screen with some of the available [Feature Builders](reference/how-does-natun-work/feature-builders/) is shown.
+   MassiveDynamic site reports all user clicks to Kafka, so click on the Kafka builder to open the wizard.
+
+**The first wizard step shows the feature metadata - name, description, owner,  readme, as well as SLA guarantees of this feature and its primitive type.**
+
+1. Fill in the Freshness and Staleness values, for example - 1 second and 20 minutes.
+   1. Keep the Deadline at the default value - it is most useful for features that are computed on request time to limit the maximum time for calculation and guarantee a timely response.
+2. Choose a "Primitive Type" of "Integer", since the result will be a count of clicks.
+3. **Click "Next" to switch to the second step**
+
+:::note
+[Click here](reference/how-does-natun-work/features/feature-sla.md) for more information about the "Feature SLA".
+::::
+
+### Configuring the feature
+
+1. Choose an **event source** -\
+   Our DevOps team preconfigured the system with several connectors, and the clickstream is available in the first Kafka connector you can select ( `... | clickstream`)
+2. The connector specifies available schemas for parsing events in the stream, since the `clickstream` carries only one type of event this is automatically selected.
+3. One way Natun helps your iterate faster is by reducing the need to ask Engineering what events look like in the production system. an "**Event Sample**" is immediately populated based on the most recent event in the stream.
+   1. Note that the sample event is formatted in a way that's easy to use in your PyExp code, no need for additional deserialization or parsing!
+4. Choose an **indexing scheme**. Indexing determines the entity for which the feature is calculated - in our example, a single user.
+   1. First note that sample on left shows us that the username is found in `payload.client_id`, following a `username:` prefix.
+   2. Enter `user_id` in the "Identifier key name" field. This is just a descriptive key name, it doesn't have to match a specific key in the stream.
+   3. Enter `payload.client_id.split(':')[0]` in the "Identifier value expression" field
+5. For this feature we will aggregate the clicks over time, so click on "**Aggregate feature values**" selector to turn it on.
+   1. Choose the aggregation function - "Sum" in our case
+   2. The "Aggregate Over" field is automatically filled from the Staleness value
+6. **Click "Next" to go to Step 3 - the Business Logic step**
+
+### Writing the business logic
+
+We're done with the feature metadata and engineering aspects and are free to write the feature calculation logic.
+
+Natun offers us two ways to do it - using the "cases" wizard or by switching to Code.  Let's see them both at work.
+
+:::info
+You can [read more](reference/pyexp/) about writing business logic as PythonExpression.
+:::
+The event sample on the left shows us that the click location (in this case the URL) can be determined from the `payload.location` field.
+
+1. Let's filter by cart clicks, so in the "Trigger Expression" enter: `payload.location=='/cart.html'`
+2. Every time there's an event that meets the expression we wrote, we want to register a single click.
+   Therefore - put `1` in the "Value" field.
+
+You can add additional "cases" this way, or you can switch to [PythonExpression](reference/pyexp/) code by clicking on "Switch to Code":
+
+A code editor shows up, with the logic implemented in the "handler()" function. Natun will call this function for every new event arriving, and the function return value will be used in calculating the Feature Value for a single event.
+
+:::info
+Note that the final Feature Value depends on the aggregation as well, so you don't need to write any aggregation code in the handler.
+:::
+
+:::tip
+Try the debugger button on the top right corner of the code editor.  The debugger terminal will open on the bottom, click on "validate" to check your code.  Fix any issues before moving on.
+:::
+
+**Click "Next" to view the resulting Feature Definition**
+
+### Saving the feature and deployment
+
+The Feature Definition is written as a Kubernetes YAML manifest.
+
+Copy the YAML manifest by simply clicking on the Copy icon, and paste the manifest into a new file in the [sample-features ](https://github.com/Natun-AI/sample-features)repository.
+
+:::info
+In your production setting, this would be your git repository. your team and go through DS / Engineering code review before the manifest is ready for deployment, and use your CI/CD or manual tools to deploy the manifest to your Kubernetes cluster.
+:::
+
+Commit and push the change to the master branch.
+
+MassiveDynamic's Continuous Delivery system will automatically detect the new feature definition and deploy it to the cluster.
+
+## Inspecting your new Feature
+
+1. In the "[Features](https://natun.massivedynamic.ml/features/)"  page, Click on your new feature:
+   1. The top bar and readme provide general information about your feature.
+   2. The "User Snippets" tab provides the Python code to request your new feature from your models.
+   3. "Statistics" is a work in progress tab that shows information about your feature values, consumption patterns, and performance / freshness.
+   4. "Peek" allows you to consume the feature value directly from the UI. (see below)
+   5. "Discussion" is a place to communicate regarding the feature, promoting in-place collaboration. This tab is too is a wok-in-progress.
+2. Choose the "Peek" tab
+   1. When creating the feature, you selected an indexing scheme (for example, a username)
+   2. Enter the username you logged into the [demo site](https://massivedynamic.ml) with into the Entity Id field.
+   3. Click on "peek"
+   4. If there were any clicks done for this user that matched the conditions in the feature definition, you should see the feature value now.
+   5. Otherwise, go back to the demo site and make some clicks. Return to the feature peek tab and click "Peek" again to see the new clicks aggregated.
+
+That's it! Your feature is now live, in production, reliably calculating, aggregating and storing your user clicks count and accessible to your models.
