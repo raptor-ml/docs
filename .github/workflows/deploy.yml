@@ -35,7 +35,7 @@ jobs:
         run: yarn install ----immutable
 
       - name: Convert ipynb files
-        uses: docker://pandoc/latex:2.18
+        uses: docker://pandoc/latex:2
         with:
           entrypoint: ./.github/ipynb2md.sh
 
