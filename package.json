@@ -15,20 +15,20 @@
     "ipynb2md": "find ./docs/ -iname '*.ipynb' -type f -exec sh -c 'pandoc --lua-filter=.github/pandoc_ipynb_meta.lua --standalone -t gfm+implicit_figures+yaml_metadata_block+pipe_tables ${0} -o ${0%.ipynb}.md' {} \\;"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-rc.1",
-    "@docusaurus/preset-classic": "^2.0.0-rc.1",
-    "@mdx-js/react": "^1.6.22",
-    "@remark-embedder/core": "^2.0.0",
-    "@remark-embedder/transformer-oembed": "^2.0.0",
+    "@docusaurus/core": "^2.0.1",
+    "@docusaurus/preset-classic": "^2.0.1",
+    "@mdx-js/react": "^2.1.3",
+    "@remark-embedder/core": "^3.0.1",
+    "@remark-embedder/transformer-oembed": "^3.0.0",
     "clsx": "^1.2.1",
     "prism-react-renderer": "^1.3.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-rc.1",
+    "@docusaurus/module-type-aliases": "^2.0.1",
     "@tsconfig/docusaurus": "^1.0.5",
-    "typescript": "^4.6.3"
+    "typescript": "^4.8.2"
   },
   "browserslist": {
     "production": [
