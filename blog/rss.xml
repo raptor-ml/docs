@@ -4,7 +4,7 @@
         <title>Raptor Blog</title>
         <link>https://docs.raptor.ml/blog</link>
         <description>Raptor Blog</description>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 03 Sep 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,9 +12,14 @@
             <title><![CDATA[Introducing Raptor]]></title>
             <link>https://docs.raptor.ml/blog/introducing-raptor</link>
             <guid>introducing-raptor</guid>
-            <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></description>
-            <content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
+            <pubDate>Sat, 03 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from]]></description>
+            <content:encoded><![CDATA[<p>Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from
+your notebook
+and take it to production in less than 5 minutes.</p><p>With Raptor, data scientists can stop waiting for others to build production-ready version of their work. Instead,
+slightly tweak your Python code and write your features' code in a notebook. Then, export the features to Kubernetes,
+and RaptorML will take care of the production and engineering concerns (such as scale, high availability,
+authentication, caching, monitoring, etc.)</p>]]></content:encoded>
         </item>
     </channel>
 </rss>

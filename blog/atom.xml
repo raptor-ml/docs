@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.raptor.ml/blog</id>
     <title>Raptor Blog</title>
-    <updated>2019-05-28T00:00:00.000Z</updated>
+    <updated>2022-09-03T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.raptor.ml/blog"/>
     <subtitle>Raptor Blog</subtitle>
@@ -11,9 +11,14 @@
         <title type="html"><![CDATA[Introducing Raptor]]></title>
         <id>introducing-raptor</id>
         <link href="https://docs.raptor.ml/blog/introducing-raptor"/>
-        <updated>2019-05-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <updated>2022-09-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from]]></summary>
+        <content type="html"><![CDATA[<p>Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from
+your notebook
+and take it to production in less than 5 minutes.</p><p>With Raptor, data scientists can stop waiting for others to build production-ready version of their work. Instead,
+slightly tweak your Python code and write your features' code in a notebook. Then, export the features to Kubernetes,
+and RaptorML will take care of the production and engineering concerns (such as scale, high availability,
+authentication, caching, monitoring, etc.)</p>]]></content>
         <author>
             <name>Almog Baku</name>
             <uri>https://github.com/AlmogBaku</uri>
