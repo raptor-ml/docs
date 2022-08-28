@@ -12,11 +12,12 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "ipynb2md": "find ./docs/ -iname '*.ipynb' -type f -exec sh -c 'pandoc --lua-filter=.github/pandoc_ipynb_meta.lua --standalone -t gfm+implicit_figures+yaml_metadata_block+pipe_tables ${0} -o ${0%.ipynb}.md' {} \\;"
+    "ipynb2md": "./.github/ipynb2md.sh"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.1",
     "@docusaurus/preset-classic": "^2.0.1",
+    "@docusaurus/theme-common": "^2.0.1",
     "@mdx-js/react": "1.6.22",
     "@remark-embedder/core": "^3.0.1",
     "@remark-embedder/transformer-oembed": "^3.0.0",
@@ -41,5 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
