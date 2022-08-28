@@ -20,7 +20,7 @@ jobs:
 
       - name: Set Yarn version to 3.x
         run: |
-          yarn set version canary
+          yarn set version berry
           yarn set version 3.x
           yarn --version
 
@@ -38,7 +38,7 @@ jobs:
 
       - name: Install project dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true' # Over here!
-        run: yarn install ----immutable
+        run: yarn install --immutable
 
       - name: Convert ipynb files
         uses: docker://pandoc/latex:2
