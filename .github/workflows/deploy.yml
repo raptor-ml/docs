@@ -32,14 +32,13 @@ jobs:
 
       - name: Install project dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true' # Over here!
-        run: yarn
+        run: yarn install --frozen-lockfile --non-interactive
 
       - name: Convert ipynb files
         uses: docker://pandoc/latex:2.18
         with:
           entrypoint: ./.github/ipynb2md.sh
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+
       - name: Build website
         run: yarn build
 
