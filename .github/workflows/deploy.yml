@@ -18,13 +18,26 @@ jobs:
           node-version: 18.x
           cache: yarn
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install project dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true' # Over here!
+        run: yarn
+
       - name: Convert ipynb files
         uses: docker://pandoc/latex:2.18
         with:
-          entrypoint: /bin/sh
-          args: >-
-            -c "find ./docs/ -iname '*.ipynb' -type f -exec sh -c 'pandoc --lua-filter=.github/pandoc_ipynb_meta.lua --standalone -t gfm+implicit_figures+yaml_metadata_block+pipe_tables ${0} -o ${0%.ipynb}.md' {} \;"
-
+          entrypoint: ./.github/ipynb2md.sh
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build website
