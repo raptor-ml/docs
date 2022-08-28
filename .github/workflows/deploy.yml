@@ -18,8 +18,11 @@ jobs:
           node-version: 18.x
           cache: yarn
 
-      - name: yarn version
-        run: yarn --version
+      - name: Set Yarn version to 3.x
+        run: |
+          yarn set version 3.x
+          yarn --version
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
