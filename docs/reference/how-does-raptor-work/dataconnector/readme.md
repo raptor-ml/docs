@@ -50,7 +50,6 @@ spec:
 // highlight-start
   connector:
     name: clicks
-    namespace: default
 // highlight-end
   builder:
     pyexp: |
