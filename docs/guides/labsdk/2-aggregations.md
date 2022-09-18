@@ -15,8 +15,8 @@ Aggregations are usually being calculated on a rolling window, I.e. The amount o
 We can achieve that by using the [`@raptor.aggr`](/reference/labsdk/decorators.md#aggregate) decorator.
 
 ```python showLineNumbers
-@raptor.register(int, freshness='1m', staleness='10h')
-@raptor.aggr([raptor.AggrFn.Count])
+@raptor.register(int, staleness='10h')
+@raptor.aggr([raptor.AggrFn.Count], granularity='1m')
 def clicks(**req: RaptorRequest):
     """clicks over 10 hours"""
     return 1, req["timestamp"], req['payload']['user_id']
@@ -26,10 +26,10 @@ Pretty simple right? let's go through what we did here line by line:
 
 1. We registered the feature with the [`@raptor.register`](/reference/labsdk/decorators.md) decorator:
     1. We set the feature primitive type to `int` (the type of the feature's output).
-    2. We set the feature's freshness to `1m` - **that we're counting in a `1 minute` resolution**.
-    3. We set the feature's staleness to `10h` - that means that the click will be stale after 10 hours, **and our
+    2. We set the feature's staleness to `10h` - that means that the click will be stale after 10 hours, **and our
        window size is also 10 hours**.
-2. We set the feature's aggregation to `Count` - We're running this aggregation function against the function's result.
+2. We add a `Count` aggregation with `1m` granularity - We're running this aggregation function against the function's
+   result.
 3. We set the feature's description. This is a good place to put a description of the feature's logic that can help
    our colleagues to understand it.
 4. We return:
@@ -44,9 +44,9 @@ Pretty simple right? let's go through what we did here line by line:
 Now that we know how to build aggregations, let's go ahead and build a feature that have multiple aggregation functions.
 
 ```python showLineNumbers
-@raptor.register(int, freshness='1m', staleness='10h')
+@raptor.register(int, staleness='10h')
 @raptor.builder("streaming")
-@raptor.aggr([raptor.AggrFn.Sum, raptor.AggrFn.Avg, raptor.AggrFn.Max, raptor.AggrFn.Min])
+@raptor.aggr([raptor.AggrFn.Sum, raptor.AggrFn.Avg, raptor.AggrFn.Max, raptor.AggrFn.Min], granularity='1m')
 def deals_10h(**req: RaptorRequest):
     """sum/avg/min/max of deal amount over 10 hours"""
     return req['payload']["amount"], req["timestamp"], req['payload']["account_id"]

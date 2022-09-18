@@ -15,7 +15,7 @@ calculates the data we need.
 A relatively simple example for this is the following "rate" feature:
 
 ```python showLineNumbers
-@raptor.register(float, freshness='1m', staleness='10h')
+@raptor.register(float, staleness='10h', freshness='1m')
 def views_purchases_rate(**req: RaptorRequest):
     """rate of two features"""
     views, ts = get_feature("views.default[count], req["entity_id"])

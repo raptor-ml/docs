@@ -42,7 +42,7 @@ The very first feature we'll build is the `Hello world` feature. It's a simple f
 returns the string `"Hello world"`:
 
 ```python showLineNumbers
-@raptor.register(str, freshness='1m', staleness='10h')
+@raptor.register(str, staleness='10h', freshness='1m')
 def hello_world(**req: RaptorRequest):
     """this is a hello world feature"""
     return "hello world"
@@ -90,7 +90,7 @@ entity `user`.
 :::
 
 ```python showLineNumbers
-@raptor.register(str, freshness='1m', staleness='10h')
+@raptor.register(str, staleness='10h', freshness='1m')
 def greeter(**req: RaptorRequest):
     """this is a greeter feature"""
     return "Hello world " + req["entity_id"]
