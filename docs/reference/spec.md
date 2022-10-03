@@ -86,16 +86,37 @@ The Core's operator is responsible for the orchestration of the system. It is re
 ## Low-level API
 
 The low-level API (aka Engine API) support low-level operations over feature values:
+```go
+// Engine is the main engine of the Core
+// It is responsible for the low-level operation for the features against the feature store
+type Engine interface {
+	// Metadata returns the metadata of the feature
+	Metadata(ctx context.Context, FQN string) (Metadata, error)
+    // Get returns the SimpleValue of the feature.
+    // If the feature is not available, it returns nil.
+    // If the feature is windowed, the returned SimpleValue is a map from window function to SimpleValue.
+	Get(ctx context.Context, FQN string, entityID string) (Value, Metadata, error)
+    // Set sets the SimpleValue of the feature.
+    // If the feature's primitive is a List, it replaces the entire list.
+    // If the feature is windowed, it is aliased to WindowAdd instead of Set.
+	Set(ctx context.Context, FQN string, entityID string, val any, ts time.Time) error
+    // Append appends the SimpleValue to the feature.
+    // If the feature's primitive is NOT a List it will throw an error.
+	Append(ctx context.Context, FQN string, entityID string, val any, ts time.Time) error
+    // Incr increments the SimpleValue of the feature.
+    // If the feature's primitive is NOT a Scalar it will throw an error.
+    // It returns the updated value in the state, and an error if occurred.
+	Incr(ctx context.Context, FQN string, entityID string, by any, ts time.Time) error
+    // Update is the common function to update a feature SimpleValue.
+    // Under the hood, it utilizes lower-level functions depending on the type of the feature.
+    //  - Set for Scalars
+    //	- Append for Lists
+    //  - WindowAdd for Windows
+	Update(ctx context.Context, FQN string, entityID string, val any, ts time.Time) error
+}
+```
 
-- Mutate features:
-- `SET(fqn, entity_id, value, timestamp?)`
-- `GET(fqn, entity_id, timestamp?)`
-- `UPDATE(fqn, entity_id, value, timestamp?)` - set value or append to a list
-- `INCR(fqn, entity_id, by, timestamp?)` - increment a value in a scalar (not for online aggr.)
-- `APPEND(fqn, entity_id, value, timestamp?)` - append a value to a list
-- LIST of features
-- GET feature-set (implemented as a feature builder)
-- SET in bulk
+It is exposed via the Accessor as gRPC and Rest.
 
 ## Online-aggregations
 
