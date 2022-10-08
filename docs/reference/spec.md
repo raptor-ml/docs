@@ -5,6 +5,58 @@ sidebar_position: 99
 id: spec
 ---
 
+# High level design
+```mermaid
+flowchart
+    subgraph Core
+        direction TB
+        engine --> pipeline
+        ctrl[Kubernetes Controller] & acc["Accessor<br><i>(REST & gRPC APIs)</i>"] <--> engine
+
+        pipeline --> middlewares --> state
+        
+        subgraph state
+        direction TB
+            p[state provider]
+            win[window fns]
+            notify
+        end
+
+        subgraph middlewares
+            direction TB
+            PyExp
+            REST
+            GeoIP
+            gRPC
+            encdoing
+            validations
+            ...
+        end
+    end
+
+    redis[("distributed state <br><i>(redis)</i>")] <-----> state & sub
+    ft[Feature CRD] --> ctrl
+    dconn[DataConnctor CRD] --> ctrl
+    fs[FeatureSet CRD] --> ctrl
+
+    subgraph runners
+        direction LR
+        subgraph webhook
+            wh[runner] <--> r[runtime] --> acc
+        end
+        subgraph streaming
+            st[runner] <--> r2[runtime] --> acc
+        end
+    end
+    subgraph historian
+        direction LR
+        sub[notifications subscriber] --> snapshotter & write
+        snapshotter --> write
+    end
+
+    write --> dw[(datalake: s3 / snowflake)]
+```
+
 # Feature Definitions
 
 Feature Definitions are an abstraction that contains metadata about the feature that should lead to create a Feature Value.

@@ -40,5 +40,5 @@ You should have access to the following inputs via the KWArgs argument that has 
 | `payload`   | The payload that you should process.<br/>Usually, this will be a deserialized form of the raw data being processed by the builder.<br/><br/>For more information - see the specific builder's documentation.<br/><br/>Type: `any` |
 | `headers`   | A dictionary of headers that have passed by the feature builder.<br/><br/>Type: `dict[string][]string   `                                                                                                                         |
 | `entity_id` | The Entity ID of the feature.<br/><br/>Type: `string`                                                                                                                                                                             |
-| `timestamp` | The timestamp of the digestion.                                                                                                                                                                                                   |
+| `timestamp` | The timestamp of the value calculation.                                                                                                                                                                                           |
 

@@ -4,7 +4,7 @@ Features in Raptor are definitions for the "recipe" of how to calculate a featur
 
 The recipe is composed of the following parts:
 
-* Metadata - which contains the name, description, type, etc.
+* Metadata - which contains the name, description, primitive type, etc.
 * [SLA](./feature-sla.md) - which contains the guarantees for the feature calculations.
 * Builder - which contains the code that will calculate the feature value.
 * [Data Connector](dataconnector/) - which references to the data that will be used to calculate the feature value.
