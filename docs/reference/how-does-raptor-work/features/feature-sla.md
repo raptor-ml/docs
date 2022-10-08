@@ -1,38 +1,38 @@
 # Features SLA
 
-Raptor helps you deploy and manage Operative Features in production, and operative production flows expect strict **
-guarantees** of time to response (latency), freshness of data, consistency, availability, and resilience to dynamic
-conditions such as a spike in usage or a return from downtime ("thundering herd" phenomena).
+Production systems expect strict **service guarantees** that ensures the quality of the service for the end-user.
 
-Raptor allows you to express your desired guarantees in a friendly form, and Raptor will configure the connectors,
-compute and storage resources to ensure that guarantees are kept.
+To implement that, you should define a desired **Service Layer Agreement** for your features, and Raptor will build a
+customized implementation for you features that meet these guarantees.
+
+Another way to look at it is to think of the Feature SLA as a set of rules that defines what is the "current state" of
+the world.
+
+## SLA Types
 
 When creating the Feature Definition, you specify three important values: **Freshness, Staleness, and Deadline.**
 
 ![](../../../assets/feature-sla.png)
 
-When a feature value is requested, Raptor checks whether a value stored in its Feature Store is fresh. A feature value
-is considered fresh if the time it was calculated was at most "**Freshness**" ago. For example, if the Freshness
-definition for a feature is 1s, then any value that is less than 1 second old in the store can be returned immediately
-without recalculation. Any value older than 1 second ago is considered non-fresh.
-
-A non-fresh feature value might still be served if it's not **Stale**. **Staleness** defines when a feature value cannot
-be served under any circumstances, and must be recalculated.
-
-Freshness would usually be shorter than Staleness, and if a feature is not fresh anymore but not yet stale, Raptor will
-try to calculate a new value within the **Deadline** . If calculation finishes within the deadline (remember, it might
-include accessing external high-latency services), the newly calculated value is returned. Otherwise, the cached value (
-which is not fresh but is also not stale yet) is returned.
-
-The **Deadline** mechanism ensures responses will always be sent within a guaranteed timeframe. For example, if you're
-implementing personalization in the user flow then keeping latency low or unnoticeable to the user is key.
-
-Here's a summary of the logic of freshness, staleness and deadline:
-
-1. Fresh feature values are returned immediately
-2. Non-fresh but non-stale values may be returned up to the deadline if recalculation took too long, otherwise the
-   recalculated value is available before the deadline.
-3. Stale values are never returned. Raptor will try to recalculate the feature value for up to the Deadline time, and if
-   unable to do so - return an error.  
+- **Staleness** - Is the maximum age of the data lifespan. Beyond this age, the data is considered stale, and is not
+  valid to be used.
+- **Freshness** - Is the age of a data that is considered fresh. When the data is fresh, we don't need to compute it
+  again.
+- **Valid data** - Is a data that it's not considered fresh anymore, but is not stale yet. In this case, we need to
+  compute the data again, but it would be okay to use it.
+- **Deadline** - Is the maximum time that we can wait for the data to be computed. If the deadline is exceeded, we
+  will either return a valid data(if we have it), or through an error.
 
 
+## How does it work?
+Under the hood, Raptor configures the necessary data-connectors, storage, and compute resources to ensure that your
+features meet the SLA.
+
+
+When a feature value is requested, Raptor:
+1. Check if we have a **fresh** value for the feature. If we do, return it.
+2. If the data we have is not *fresh*, but it's not *stale* yet, we will compute the data again, and return it.
+   1. If the data is computed **before the deadline**, return it.
+   2. If the data is computed **after the deadline**, return the valid data, and compute the data in the background for future usage.
+3. If we don't have a valid data, and the deadline is exceeded, return an error.
+4. Stale data is never returned. Instead, the Historian is recording it for future usage, and we delete it from the State.
