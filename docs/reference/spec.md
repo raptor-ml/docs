@@ -12,25 +12,27 @@ flowchart
         direction TB
         engine --> pipeline
         ctrl[Kubernetes Controller] & acc["Accessor<br><i>(REST & gRPC APIs)</i>"] <--> engine
-
-        pipeline --> middlewares --> state
-        
-        subgraph state
-        direction TB
-            p[state provider]
-            win[window fns]
-            notify
-        end
-
-        subgraph middlewares
+        subgraph Engine
+            engine
+            pipeline --> middlewares --> state
+            
+            subgraph state
             direction TB
-            PyExp
-            REST
-            GeoIP
-            gRPC
-            encdoing
-            validations
-            ...
+                p[state provider]
+                win[window fns]
+                notify
+            end
+
+            subgraph middlewares
+                direction TB
+                PyExp
+                REST
+                GeoIP
+                gRPC
+                encdoing
+                validations
+                ...
+            end
         end
     end
 
