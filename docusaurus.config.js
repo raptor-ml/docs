@@ -20,6 +20,10 @@ const config = {
   organizationName: 'raptor-ml', // Usually your GitHub org/user name.
   projectName: 'raptor', // Usually your repo name.
   trailingSlash: false,
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
       'classic',
