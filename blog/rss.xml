@@ -11,7 +11,7 @@
         <item>
             <title><![CDATA[Introducing Raptor]]></title>
             <link>https://docs.raptor.ml/blog/introducing-raptor</link>
-            <guid>introducing-raptor</guid>
+            <guid>https://docs.raptor.ml/blog/introducing-raptor</guid>
             <pubDate>Sat, 03 Sep 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from]]></description>
             <content:encoded><![CDATA[<p>Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from
