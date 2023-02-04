@@ -94,7 +94,7 @@ const config = {
             items: [
               {
                 label: 'Getting started',
-                to: '/docs/guides/getting-started-with-labsdk',
+                to: '/docs/guides/getting-started-with-labsdk-ipynb',
               },
             ],
           },
