@@ -9,9 +9,3 @@ At the moment, the historical data is available by using the created Snowflake v
 S3.
 
 Coming soon will be a mechanism for retraining your model using historical data using the LabSDK:
-
-```python
-@raptor.feature_set(remote=True)
-def my_feature_set():
-    pass
-```
