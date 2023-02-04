@@ -4,8 +4,8 @@
   <ShortName>Raptor</ShortName>
   <Description>Search Raptor</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://docs.raptor.ml/img/icon.svg</Image>
-  <Url type="text/html" method="get" template="https://docs.raptor.ml/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.raptor.ml/opensearch.xml" />
-  <moz:SearchForm>https://docs.raptor.ml/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://raptor.ml/img/icon.svg</Image>
+  <Url type="text/html" method="get" template="https://raptor.ml/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://raptor.ml/opensearch.xml" />
+  <moz:SearchForm>https://raptor.ml/</moz:SearchForm>
 </OpenSearchDescription>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Raptor Blog</title>
-        <link>https://docs.raptor.ml/blog</link>
+        <link>https://raptor.ml/blog</link>
         <description>Raptor Blog</description>
         <lastBuildDate>Sat, 03 Sep 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[Introducing Raptor]]></title>
-            <link>https://docs.raptor.ml/blog/introducing-raptor</link>
-            <guid>https://docs.raptor.ml/blog/introducing-raptor</guid>
+            <link>https://raptor.ml/blog/introducing-raptor</link>
+            <guid>https://raptor.ml/blog/introducing-raptor</guid>
             <pubDate>Sat, 03 Sep 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from]]></description>
             <content:encoded><![CDATA[<p>Raptor is a serverless feature engineering platform. It helps you to create production-ready ML features directly from
