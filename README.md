@@ -1,6 +1,8 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website, is used to document the [Raptor](https://raptor.ml) project.
+
+It is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
@@ -53,12 +55,21 @@ b. You can hide a cell by providing `"docusaurus_hide": true` in the cell's meta
 
 ### Build
 
-1. Convert `.ipynb` files to `.md` files as specified above:
+To build the website, we need first to transform the `.ipynb` files to `.md` files. This is done by the `ipynb2md` script.
+
+The following steps are required to build the website:
+
+1. Install `pandoc`:
+```console
+brew install pandoc
+```
+
+2. Convert `.ipynb` files to `.md` files as specified above:
 ```
 $ yarn ipynb2md
 ```
 
-2. Build the website:
+3. Build the website:
 ```
 $ yarn build
 ```
