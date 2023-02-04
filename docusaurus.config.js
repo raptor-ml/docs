@@ -11,8 +11,8 @@ const oembedTransformer = fauxOembedTransformer.default
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Raptor',
-  tagline: 'Serverless feature engineering - from notebook to production',
-  url: 'https://docs.raptor.ml',
+  tagline: 'Transform your data science to production-ready models\n',
+  url: 'https://raptor.ml',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

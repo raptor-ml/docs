@@ -14,7 +14,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/notebook.svg').default,
     description: (
       <>
-        You don't need to install anything to start writing Raptor compatible features, just used your beloved notebook
+        You don't need to install anything to start writing production ready models, just used your beloved notebook
         as you're use to.
       </>
     ),
@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/data-science.svg').default,
     description: (
       <>
-        Raptor lets you focus on business-logic of your ML features, and we&apos;ll do the chores to productionize it.
+        Raptor lets you focus on the science, and we&apos;ll do the chores to productionize it.
       </>
     ),
   },
@@ -33,8 +33,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/production.svg').default,
     description: (
       <>
-        Raptor compatible features are ready to deploy to production. Raptor handles all of the engineering concerns related
-        to the deployment of your ML features.
+        Raptor handles all of the engineering concerns related to the deployment of your models.
       </>
     ),
   },
@@ -56,7 +55,7 @@ function Feature({title, Svg, description}: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
+    <section className={clsx('hero hero--primary', styles.features)}>
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (
