@@ -31,14 +31,32 @@
   margin: 0 0.3rem -0.3rem 0;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    height: auto;
+    padding: 1rem;
+  }
+  .heroBanner h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+  .heroBanner h2 {
+    font-size: 2rem;
+  }
+  .heroBanner p {
+    font-size: 1rem;
+    padding: initial;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+  .button {
+    margin: 0.5rem;
+  }
 }
