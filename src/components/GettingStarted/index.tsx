@@ -70,26 +70,26 @@ const Steps: SectionItem[] = [
   },
   {
     title: "Create a Data Source",
-    description: "The Data Source represent the raw data that will be used to create our features.",
+    description: "Represent your raw data as it looks in production and match it to the data you have locally.",
     className: styles.dsrc,
     items: [
       {
         title: notebookTitle,
         code: codeSrc,
         metaString: "{2}",
-        description: "Defining the data to use locally for training",
+        description: "Defining the data to use locally for training.",
       },
       {
         title: notebookTitle,
         code: codeSrc,
         metaString: "{3}",
-        description: "Defining the production configuration stub - this will be used for later for the DevOps team",
+        description: "Defining the production configuration stub - this will be used for later for the DevOps team.",
       },
       {
         title: notebookTitle,
         code: codeSrc,
         metaString: "{6-8}",
-        description: "Defining the schema of the data source",
+        description: "Defining the schema of the data source.",
       },
     ],
   },
@@ -97,25 +97,25 @@ const Steps: SectionItem[] = [
     className: "feature-engineering",
     title: "Feature engineering",
     description: "Write simple python functions to create features, and the complex parts as decorators. " +
-      "Raptor will do the rest and optimize the computation for production purposes.",
+      "Raptor will optimize the computation for production purposes.",
     items: [
       {
         title: notebookTitle,
         code: codeComplex,
         metaString: "{1}",
-        description: "Defining the feature, its keys, and the data source it uses",
+        description: "Defining the feature, its keys, and the data source it uses.",
       },
       {
         title: notebookTitle,
         code: codeComplex,
         metaString: "{2}",
-        description: "Setting an aggregation of Sum over the last 10 hours",
+        description: "Setting an aggregation of Sum over the last 10 hours.",
       },
       {
         title: notebookTitle,
         code: codeComplex,
         metaString: "{5}",
-        description: "getting value from a dependant feature (by previous value)",
+        description: "Getting value from a dependant feature (and by previous value).",
       },
     ],
   },
@@ -128,7 +128,7 @@ const Steps: SectionItem[] = [
         title: notebookTitle,
         code: modelCode,
         metaString: "{3-4}",
-        description: "Defining the inputs and labels for the model",
+        description: "Defining the inputs and labels for the model.",
       },
       {
         title: notebookTitle,
@@ -140,19 +140,19 @@ const Steps: SectionItem[] = [
         title: notebookTitle,
         code: modelCode,
         metaString: "{6}",
-        description: "Defining the freshness of the model - this will define how long the predictions will be valid for",
+        description: "Defining the freshness of the model - this will define how long the predictions will be valid for.",
       },
       {
         title: notebookTitle,
         code: modelCode,
         metaString: "{10-14}",
-        description: "Train your model as you use to",
+        description: "Train your model as you use to do.",
       }
     ],
   },
   {
     title: "Export your work",
-    description: "Export your work to a git repository, and let the DevOps team do the rest.",
+    description: "Export your work to a git repository, and let the DevOps team do the rest. Just like every other project.",
     items: [
       {
         title: notebookTitle,
@@ -185,7 +185,8 @@ function InteractiveCode({interval, items}: { interval?: number, items: Code[] }
 
   return <>
     <CodeBlock language={item.language ?? 'python'} metastring={item.metaString}
-               showLineNumbers={item.showLineNumbers ?? true} title={item.title}>{item.code}</CodeBlock>
+               showLineNumbers={item.showLineNumbers ?? true} title={item.title}
+               className={"shadow--tl"}>{item.code}</CodeBlock>
     <p>{item.description}</p>
   </>
 }
@@ -193,10 +194,10 @@ function InteractiveCode({interval, items}: { interval?: number, items: Code[] }
 function Section({title, description, interval, className, items, i}: SectionItem & { i: number }): JSX.Element {
 
   let extraClassName = "";
-  if (i % 3 === 1) {
+  if (i % 3 === 0) {
     extraClassName = "hero--primary";
   }
-  if (i % 3 === 0) {
+  if (i % 3 === 1) {
     extraClassName = "hero--dark";
   }
 
@@ -204,7 +205,7 @@ function Section({title, description, interval, className, items, i}: SectionIte
     <div className="container">
       <div className={clsx("row", i % 2 !== 0 ? styles.reversed_row : null)}>
         <div className={clsx('col col--4')}>
-          <div className="info">
+          <div className={clsx(styles.info)}>
             <h2>{title}</h2>
             <p>{description}</p>
           </div>
