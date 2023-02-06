@@ -8,6 +8,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import GithubIcon from '@site/static/img/github.svg';
 import GettingStarted from "@site/src/components/GettingStarted";
 import Marquee from "react-fast-marquee";
+import {ParallaxProvider, useParallax} from "react-scroll-parallax";
 
 
 function CallToAction(): JSX.Element {
@@ -80,6 +81,9 @@ function Integrations(): JSX.Element {
 }
 
 function Architecture(): JSX.Element {
+  const parallax = useParallax({
+    speed: 17,
+  });
   return <section className="hero">
     <div className="container text--center">
       <h2 className="hero__title">Focus on the science</h2>
@@ -88,7 +92,7 @@ function Architecture(): JSX.Element {
         work to production. Raptor takes care of the rest, including connecting to data sources, transforming the
         data, deploying and connecting the model, etc.
       </p>
-      <img src={require('@site/static/img/simplified-high-level.png').default} alt={"High level architecture"}/>
+      <img src={require('@site/static/img/simplified-high-level.png').default} alt={"High level architecture"} ref={parallax.ref}/>
     </div>
   </section>
 }
@@ -96,22 +100,24 @@ function Architecture(): JSX.Element {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Welcome to ${siteConfig.title}`}
-      description={siteConfig.tagline}>
-      <HomepageHeader/>
-      <Integrations/>
-      <HomepageFeatures/>
-      <main>
-        <Architecture/>
-        <GettingStarted/>
-      </main>
-      <section className="hero">
-        <div className="container text--center">
-          <h2>Try the quickstart tutorial to learn more</h2>
-          <CallToAction/>
-        </div>
-      </section>
-    </Layout>
+    <ParallaxProvider>
+      <Layout
+        title={`Welcome to ${siteConfig.title}`}
+        description={siteConfig.tagline}>
+        <HomepageHeader/>
+        <Integrations/>
+        <HomepageFeatures/>
+        <main>
+          <Architecture/>
+          <GettingStarted/>
+        </main>
+        <section className="hero">
+          <div className="container text--center">
+            <h2>Try the quickstart tutorial to learn more</h2>
+            <CallToAction/>
+          </div>
+        </section>
+      </Layout>
+    </ParallaxProvider>
   );
 }

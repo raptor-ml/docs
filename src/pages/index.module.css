@@ -62,9 +62,9 @@
 }
 
 .marquee img {
-  max-width: 8rem;
-  max-height: 8rem;
-  margin: 0 1rem;
+  max-width: 9rem;
+  max-height: 6rem;
+  margin: 0 1.5rem;
 }
 
 .integrations {
