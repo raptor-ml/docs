@@ -60,3 +60,15 @@
     margin: 0.5rem;
   }
 }
+
+.marquee img {
+  max-width: 8rem;
+  max-height: 8rem;
+  margin: 0 1rem;
+}
+
+.integrations {
+  background: var(--ifm-color-primary);
+  padding: 4rem 0;
+  color: var(--ifm-font-color-base-inverse);
+}

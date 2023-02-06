@@ -8,6 +8,10 @@
   margin-right: 0.5rem;
 }
 
+.info p {
+  font-size: 1.1rem;
+}
+
 .code * {
   transition: all 0.3s ease-in-out;
 }
