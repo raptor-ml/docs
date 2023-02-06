@@ -26,9 +26,9 @@ const config = {
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           remarkPlugins: [[remarkEmbedder, { transformers: [oembedTransformer] }]],
           sidebarPath: require.resolve('./sidebars.js'),
@@ -44,7 +44,7 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
 

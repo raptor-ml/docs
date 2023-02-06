@@ -18,6 +18,8 @@
   --ifm-code-font-size: 95%;
 
   --ifm-navbar-height: 5rem;
+
+  --docusaurus-highlighted-code-line-bg: #e2d0ec;
 }
 .footer--dark {
   --ifm-footer-background-color: #310848;
@@ -40,6 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   --ifm-color-primary-light: #f6f0f9;
   --ifm-color-primary-lighter: #ffffff;
   --ifm-color-primary-lightest: #ffffff;
+  --docusaurus-highlighted-code-line-bg: #3f1665;
 }
 
 .docusaurus-highlight-code-line {
@@ -51,11 +54,4 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
-}
-
-.storyset-attribution {
-  margin-top: 2rem;
-  font-size: 70%;
-  font-style: italic;
-  text-align: right;
 }
