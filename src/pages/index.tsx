@@ -40,7 +40,7 @@ function HomepageHeader(): JSX.Element {
   </header>;
 }
 
-const logos: string[] = [
+const logos = [
   require('@site/static/img/integrations/bentoml.png').default,
   require('@site/static/img/integrations/catboost.png').default,
   require('@site/static/img/integrations/docker.png').default,
