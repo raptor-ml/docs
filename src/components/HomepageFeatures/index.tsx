@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/notebook.svg').default,
     description: (
       <>
-        You don't need to install anything to start writing production ready models, just used your beloved notebook
-        as you're use to.
+        You don't need DevOps or Backend Engineers to start writing production ready models, just used your beloved
+        notebook as you're use to.
       </>
     ),
   },
@@ -43,7 +43,7 @@ function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg className={styles.featureSvg} role="img"/>
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -62,7 +62,8 @@ export default function HomepageFeatures(): JSX.Element {
             <Feature key={idx} {...props} />
           ))}
         </div>
-        <div className="storyset-attribution"><a href="https://storyset.com/">illustrations by Storyset</a></div>
+        <div className={clsx(styles.storyset_attribution)}><a href="https://storyset.com/">illustrations by Storyset</a>
+        </div>
       </div>
     </section>
   );

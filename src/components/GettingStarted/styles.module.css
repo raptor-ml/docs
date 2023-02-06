@@ -1,0 +1,13 @@
+.reversed_row {
+  flex-direction: row-reverse;
+}
+.install code:before {
+  content: '$';
+  color: var(--ifm-color-primary);
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
+
+.code * {
+  transition: all 0.3s ease-in-out;
+}
