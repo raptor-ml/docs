@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import {useParallax} from "react-scroll-parallax";
 
 type FeatureItem = {
   title: string;
@@ -40,9 +41,12 @@ const FeatureList: FeatureItem[] = [
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
+  const parallax = useParallax({
+    speed: 5,
+  });
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
+      <div className="text--center" ref={parallax.ref}>
         <Svg className={styles.featureSvg} role="img"/>
       </div>
       <div className="text--center padding-horiz--md">

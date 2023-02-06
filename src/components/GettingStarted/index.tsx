@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import CodeBlock from "@theme/CodeBlock";
+import {Parallax, useParallax} from "react-scroll-parallax";
 
 type Code = {
   title?: string;
@@ -10,6 +11,7 @@ type Code = {
   showLineNumbers?: boolean;
   metaString?: string;
   description?: string;
+  disableParallax?: boolean;
 };
 type SectionItem = {
   title: string;
@@ -62,6 +64,7 @@ const Steps: SectionItem[] = [
     title: "Install Raptor's LabSDK library",
     description: "The LabSDK help you to get started on your local Notebook or IDE.",
     className: styles.install,
+    disableParallax: true,
     items: [{
       code: "pip install raptor-labsdk",
       language: "shell",
@@ -191,7 +194,11 @@ function InteractiveCode({interval, items}: { interval?: number, items: Code[] }
   </>
 }
 
-function Section({title, description, interval, className, items, i}: SectionItem & { i: number }): JSX.Element {
+function rand(min, max) { // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function Section({title, description, interval, className, items, disableParallax, i}: SectionItem & { i: number }): JSX.Element {
 
   let extraClassName = "";
   if (i % 3 === 0) {
@@ -200,6 +207,10 @@ function Section({title, description, interval, className, items, i}: SectionIte
   if (i % 3 === 1) {
     extraClassName = "hero--dark";
   }
+
+  const parallax = useParallax({
+    speed: disableParallax ? 0 : i%2 === 0 ? rand(3,7) : rand(-3,-7),
+  });
 
   return <section className={clsx("hero", extraClassName, className)}>
     <div className="container">
@@ -210,8 +221,8 @@ function Section({title, description, interval, className, items, i}: SectionIte
             <p>{description}</p>
           </div>
         </div>
-        <div className={clsx('col col--8', styles.code)}>
-          <InteractiveCode interval={interval} items={items}/>
+        <div className={clsx('col col--8', styles.code)} ref={parallax.ref}>
+            <InteractiveCode interval={interval} items={items}/>
         </div>
       </div>
     </div>
