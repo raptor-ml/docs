@@ -11,31 +11,30 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/notebook.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        You don't need to install anything to start writing Raptor compatible features, just used your beloved notebook
+        as you're use to.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Focus on Data Science',
+    Svg: require('@site/static/img/data-science.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Raptor lets you focus on business-logic of your ML features, and we&apos;ll do the chores to productionize it.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Production-grade',
+    Svg: require('@site/static/img/production.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Raptor compatible features are ready to deploy to production. Raptor handles all of the engineering concerns related
+        to the deployment of your ML features.
       </>
     ),
   },
@@ -64,6 +63,7 @@ export default function HomepageFeatures(): JSX.Element {
             <Feature key={idx} {...props} />
           ))}
         </div>
+        <div className="storyset-attribution"><a href="https://storyset.com/">illustrations by Storyset</a></div>
       </div>
     </section>
   );

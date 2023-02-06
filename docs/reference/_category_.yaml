@@ -1,7 +1,0 @@
-position: -1 # float position is supported
-label: 'Reference'
-collapsible: true # make the category collapsible
-collapsed: true # keep the category open by default
-link: ~
-customProps:
-  description: This description can be used in the swizzled DocCard

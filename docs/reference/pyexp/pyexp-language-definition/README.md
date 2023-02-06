@@ -1,6 +1,6 @@
 # PyExp: Language definition
 
-Natun's Python Expression(PyExp) Language is based on the _Starlark_ dialect of Python, which is intended for use as a configuration language.
+Raptor's Python Expression(PyExp) Language is based on the _Starlark_ dialect of Python, which is intended for use as a configuration language.
 
 In this document, we'll cover the specifications of Starlark itself:
 

@@ -1,0 +1,10 @@
+position: 3 # float position is supported
+label: 'LabSDK'
+collapsible: true # make the category collapsible
+collapsed: true # keep the category open by default
+className: labsdk
+#link:
+#  type: generated-index
+#  title: LabSDK
+customProps:
+  description: Learn how to create Raptor compatible features from your notebook

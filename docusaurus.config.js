@@ -10,15 +10,15 @@ const oembedTransformer = fauxOembedTransformer.default;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Natun Docs',
-  tagline: 'Serverless feature engineering',
-  url: 'https://docs.natun.ai',
+  title: 'Raptor',
+  tagline: 'Serverless feature engineering - from notebook to production',
+  url: 'https://docs.raptor.ml',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.png',
-  organizationName: 'natun-ai', // Usually your GitHub org/user name.
-  projectName: 'natun', // Usually your repo name.
+  favicon: 'img/icon.svg',
+  organizationName: 'raptor-ml', // Usually your GitHub org/user name.
+  projectName: 'raptor', // Usually your repo name.
   trailingSlash: false,
   presets: [
     [
@@ -29,13 +29,13 @@ const config = {
           remarkPlugins: [[remarkEmbedder, {transformers: [oembedTransformer]}]],
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/natun-ai/docs/tree/master/',
+          editUrl: 'https://github.com/raptor-ml/docs/tree/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/natun-ai/docs/tree/master/',
+            'https://github.com/raptor-ml/docs/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -49,25 +49,25 @@ const config = {
     ({
       navbar: {
         logo: {
-          alt: 'Natun Logo',
-          src: 'img/logo.png',
+          alt: 'Raptor',
+          src: 'img/logo.svg',
         },
         items: [
           {
-            type: 'doc',
-            docId: 'readme',
+            type: 'docSidebar',
+            sidebarId: 'guides',
             position: 'left',
-            label: 'Docs',
+            label: 'Guides',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'reference',
+            type: 'doc',
+            docId: 'reference/how-does-raptor-work/readme',
             position: 'left',
             label: 'Reference',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/natun-ai/natun',
+            href: 'https://github.com/raptor-ml/raptor',
             label: 'GitHub',
             position: 'right',
           },
@@ -76,17 +76,18 @@ const config = {
       footer: {
         style: 'dark',
         logo: {
-          alt: 'Natun Logo',
-          src: 'img/logo.png',
+          alt: 'Raptor',
+          src: 'img/logo.svg',
+          height: 80,
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Natun.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Raptor.`,
         links: [
           {
-            title: 'Docs',
+            title: 'Guides',
             items: [
               {
                 label: 'Getting started',
-                to: '/docs',
+                to: '/docs/guides/getting-started-with-labsdk',
               },
             ],
           },
@@ -95,7 +96,7 @@ const config = {
             items: [
               {
                 label: 'Reference',
-                to: '/docs/reference/spec',
+                to: '/docs/reference/how-does-raptor-work',
               },
             ],
           },
@@ -112,7 +113,7 @@ const config = {
               // },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/natun-ai',
+                href: 'https://twitter.com/RaptorML',
               },
             ],
           },
@@ -125,7 +126,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/natun-ai/natun',
+                href: 'https://github.com/raptor-ml/raptor',
               },
             ],
           },
