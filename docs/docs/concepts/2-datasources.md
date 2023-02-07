@@ -4,14 +4,14 @@ Data sources are the way we connect the features to the data that we need to cal
 
 Data sources are composed of:
 
-1. Declaring the data source using the [`@data_source`](/docs/reference/labsdk/decorators) decorator.
+1. Declaring the data source using the [`@data_source`](/reference/labsdk/decorators) decorator.
 2. The data source class itself which represents the data source's schema (specifying the schema is optional, you
    can simply `pass` the class body).
 
 
 ## Declaring the data source
 
-In order to declare a data source, we use the [`@data_source`](/docs/reference/labsdk/decorators) decorator.
+In order to declare a data source, we use the [`@data_source`](/reference/labsdk/decorators) decorator.
 
 ```python
 from typing_extensions import TypedDict

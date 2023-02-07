@@ -15,7 +15,7 @@ function CallToAction(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return <div className={styles.buttons}>
     <Link className={clsx("button gh-star button--primary button--lg", styles.button)}
-          to="/docs/guides/getting-started-with-labsdk-ipynb">
+          to="/docs/getting-started-ipynb">
       Quickstart Tutorial &lt; 5min ⏱️
     </Link>
     <Link className={clsx("button gh-star button--secondary button--lg", styles.button)}
@@ -107,7 +107,7 @@ export default function Home(): JSX.Element {
   return (
     <ParallaxProvider>
       <Layout
-        title={`Welcome to ${siteConfig.title}`}
+        title={siteConfig.tagline}
         description={siteConfig.tagline}>
         <HomepageHeader/>
         <Integrations/>

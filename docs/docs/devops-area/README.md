@@ -5,7 +5,8 @@ sidebar_position: 5
 ---
 :::tip
 **Raptor installation is not required for training purposes**.
-You need to install Raptor *only when deploying to production* (or staging).
+
+You need to install Raptor Core *only when deploying to production* (or staging).
 :::
 
 # Prerequisites
@@ -13,7 +14,6 @@ You need to install Raptor *only when deploying to production* (or staging).
 1. Kubernetes cluster
 
    (You can use [Kind](https://kind.sigs.k8s.io/) to install Raptor locally)
-    1. `kubectl` installed and configured to your cluster.
 2. Redis server (> 2.8.9)
 
 :::tip
@@ -36,8 +36,7 @@ At the moment, Raptor supports the following historical data providers:
 
 :::warning
 It's highly recommended to use Kubernetes Secrets to store your credentials, and then to configure Raptor's Deployment
-with
-Environment Variables.
+with Environment Variables.
 :::
 
 # Installing Raptor
@@ -51,13 +50,13 @@ the [OperatorHub installer](https://operatorhub.io/operator/raptor).
 apiVersion: v1
 kind: Secret
 metadata:
-   name: raptor-providers-creds
-   namespace: raptor-system
+  name: raptor-providers-creds
+  namespace: raptor-system
 data:
-   REDIS: "my-redis.default.svc.cluster.local"
-   AWS_ACCESS_KEY: ""
-   AWS_SECRET_KEY: ""
-   SNOWFLAKE_URI: <user>:<pass>@<account-id>/<db>/<schema>?warehouse=<warehouse-name>
+  REDIS: "my-redis.default.svc.cluster.local"
+  AWS_ACCESS_KEY: ""
+  AWS_SECRET_KEY: ""
+  SNOWFLAKE_URI: <user>:<pass>@<account-id>/<db>/<schema>?warehouse=<warehouse-name>
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -112,7 +111,7 @@ The configuration parameters below can be used to customize Raptor deployments:
 | `--state-provider`            | `STATE_PROVIDER`            | `string`       | The state provider. (default "redis")                                                                                                                                              |
 | `--usage-reporting`           | `USAGE_REPORTING`           | `bool`         | Allow us to anonymously report usage statistics to improve Raptor 🪄 (default true)                                                                                                |
 | `--usage-reporting-uid`       | `USAGE_REPORTING_UID`       | `string`       | Usage reporting Unique Identifier. You can use this to set a unique identifier for your cluster.                                                                                   |
-| `--watch-namespaces`          | `WATCH_NAMESPACES`          | `stringArray`  | Enable namespace-level only by specify a list ofnamespaces that the operator is watching. If not specify, the operator will run on cluster level.                                  |
+| `--watch-namespaces`          | `WATCH_NAMESPACES`          | `stringArray`  | Enable namespace-level only by specify a list of namespaces that the operator is watching. If not specify, the operator will run on cluster level.                                 |
 | `--zap-devel`                 | `ZAP_DEVEL`                 | `bool`         | Development Mode defaults(encoder=consoleEncoder,logLevel=Debug,stackTraceLevel=Warn). Production Mode defaults(encoder=jsonEncoder,logLevel=Info,stackTraceLevel=Error)           |
 | `--zap-encoder`               | `ZAP_ENCODER`               | `encoder`      | Zap log encoding (one of 'json' or 'console')                                                                                                                                      |
 | `--zap-log-level`             | `ZAP_LOG_LEVEL`             | `level`        | Zap Level to configure the verbosity of logging. Can be one of 'debug', 'info', 'error', or any integer value > 0 which corresponds to custom debug levels of increasing verbosity |

@@ -32,7 +32,7 @@ requirements, we cannot recalculate the aggregation on every request and go thro
 To achieve that, we are using a "bucketing algorithm" that will split the calculation over a smaller granularity(
 buckets), and then aggregate the results.
 
-![Raptor's_bucketing_algorithm](../../../assets/aggr-bucketing-algo.drawio.png)
+![Raptor's_bucketing_algorithm](pathname:///assets/aggr-bucketing-algo.drawio.png)
 
 In the example above, we are calculating the Sum of the values over the last *1 hour*, with a *5 minutes* granularity.
 That means that we will get the sum of the values over the last hour with an accuracy of 5 minutes.

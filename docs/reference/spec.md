@@ -267,7 +267,7 @@ To build features, the builder required to pull configurations from two places:
 
 - DataConnector CRD - defining the connection configuration
 - Feature CRD - defining the business logic of a feature creation
-  ![Shape1](../assets/spec.builders.png)
+  ![Shape1](pathname:///assets/spec.builders.png)
 
 :::tip
 Builders are an amorphic concept that unite together a set of instructions how to build the feature value.

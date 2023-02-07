@@ -13,7 +13,7 @@ state" of the world.
 When creating the Feature or a Model Definition, you specify three important values: **`max_age`, `max_stale`,
 and `timeout`.**
 
-![Freshness Guarantees illustration](../../assets/freshness.png)
+![Freshness Guarantees illustration](pathname:///assets/freshness.png)
 
 - **`max_age`** - Is the age of a data that is considered fresh. When the data is fresh, we don't need to compute it
   again.
