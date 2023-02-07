@@ -27,6 +27,9 @@ function CallToAction(): JSX.Element {
 }
 
 function HomepageHeader(): JSX.Element {
+  const parallax = useParallax({
+    speed: 3,
+  });
   const {siteConfig} = useDocusaurusContext();
   return <header className={clsx('hero', styles.heroBanner)}>
     <div className="container">
@@ -38,6 +41,7 @@ function HomepageHeader(): JSX.Element {
       </p>
       <CallToAction/>
     </div>
+    <a className={styles.scroll} href="#" ref={parallax.ref}>Scroll down to learn more</a>
   </header>;
 }
 
@@ -92,7 +96,8 @@ function Architecture(): JSX.Element {
         work to production. Raptor takes care of the rest, including connecting to data sources, transforming the
         data, deploying and connecting the model, etc.
       </p>
-      <img src={require('@site/static/img/simplified-high-level.png').default} alt={"High level architecture"} ref={parallax.ref}/>
+      <img src={require('@site/static/img/simplified-high-level.png').default} alt={"High level architecture"}
+           ref={parallax.ref}/>
     </div>
   </section>
 }

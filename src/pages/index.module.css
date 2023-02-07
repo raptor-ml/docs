@@ -9,15 +9,18 @@
   position: relative;
   overflow: hidden;
   height: 85vh;
+  padding-bottom: 5rem;
 }
 
 .heroBanner h1 {
   font-size: 4rem;
   font-weight: 800;
 }
+
 .heroBanner h2 {
   font-size: 2.5rem;
 }
+
 .heroBanner p {
   font-size: 1.5rem;
   font-family: 'Raleway', sans-serif;
@@ -27,6 +30,7 @@
 .button {
   margin: 0 0.5rem;
 }
+
 .button .gh_icon {
   margin: 0 0.3rem -0.3rem 0;
 }
@@ -42,20 +46,25 @@
     height: auto;
     padding: 1rem;
   }
+
   .heroBanner h1 {
     font-size: 2.5rem;
     font-weight: 800;
   }
+
   .heroBanner h2 {
     font-size: 2rem;
   }
+
   .heroBanner p {
     font-size: 1rem;
     padding: initial;
   }
+
   .buttons {
     flex-direction: column;
   }
+
   .button {
     margin: 0.5rem;
   }
@@ -71,4 +80,87 @@
   background: var(--ifm-color-primary);
   padding: 4rem 0;
   color: var(--ifm-font-color-base-inverse);
+}
+
+
+.scroll {
+  position: absolute;
+  display: block;
+  font-size: 0.933rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  padding: 1rem;
+  width: 15rem;
+  bottom: 2.5rem;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.scroll::before {
+  display: block;
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 0.2rem solid var(--ifm-color-primary);
+  border-radius: 1.2rem;
+  content: "";
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.scroll::after {
+  display: block;
+  position: absolute;
+  top: 0.6rem;
+  left: 0.65rem;
+  width: 0.2rem;
+  height: 0.5rem;
+  background: var(--ifm-color-primary);
+  border-radius: 0.2rem;
+  content: "";
+  animation-name: scroll;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 2.5s;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    height: 8px;
+  }
+  20% {
+    opacity: 1;
+    height: 0.8rem;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+    height: 0.8rem;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(19px);
+    opacity: 0;
+    height: 0;
+  }
+  81% {
+    transform: translateY(0);
+    opacity: 0;
+    height: 0.8rem;
+  }
+  100% {
+    opacity: 1;
+    height: 0.8rem;
+  }
 }
