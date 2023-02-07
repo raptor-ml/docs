@@ -48,16 +48,15 @@ function HomepageHeader(): JSX.Element {
 const logos = [
   require('@site/static/img/integrations/bentoml.png').default,
   require('@site/static/img/integrations/catboost.png').default,
-  require('@site/static/img/integrations/docker.png').default,
+  require('@site/static/img/integrations/sagemaker.png').default,
   require('@site/static/img/integrations/fastai.png').default,
-  require('@site/static/img/integrations/go.png').default,
   require('@site/static/img/integrations/keras.png').default,
   require('@site/static/img/integrations/kubernetes.png').default,
   require('@site/static/img/integrations/lightgbm.png').default,
+  require('@site/static/img/integrations/snowflake.png').default,
   require('@site/static/img/integrations/onnx.png').default,
   require('@site/static/img/integrations/python.png').default,
   require('@site/static/img/integrations/pytorch-lightning.png').default,
-  require('@site/static/img/integrations/sagemaker.png').default,
   require('@site/static/img/integrations/sklearn.png').default,
   require('@site/static/img/integrations/tensorflow.png').default,
   require('@site/static/img/integrations/transformers.png').default,
@@ -65,8 +64,9 @@ const logos = [
   require('@site/static/img/integrations/grpc.png').default,
   require('@site/static/img/integrations/redis.png').default,
   require('@site/static/img/integrations/rest.png').default,
-  require('@site/static/img/integrations/snowflake.png').default,
   require('@site/static/img/integrations/parquet.png').default,
+  require('@site/static/img/integrations/docker.png').default,
+  require('@site/static/img/integrations/go.png').default,
 ]
 
 function Integrations(): JSX.Element {
