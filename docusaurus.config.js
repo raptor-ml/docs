@@ -30,17 +30,18 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
-          remarkPlugins: [[remarkEmbedder, { transformers: [oembedTransformer] }]],
+          remarkPlugins: [[remarkEmbedder, {transformers: [oembedTransformer]}]],
           sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: '/',
           // Please change this to your repo.
           editUrl: 'https://github.com/raptor-ml/docs/tree/master/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/raptor-ml/docs/tree/master/',
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   // Please change this to your repo.
+        //   editUrl:
+        //     'https://github.com/raptor-ml/docs/tree/master/',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -50,7 +51,7 @@ const config = {
 
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -62,17 +63,17 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'guides',
+            sidebarId: 'docs',
             position: 'left',
-            label: 'Guides',
+            label: 'Docs',
           },
           {
             type: 'doc',
-            docId: 'reference/how-does-raptor-work/readme',
+            docId: 'reference/how-does-raptor-work/README',
             position: 'left',
             label: 'Reference',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/raptor-ml/raptor',
             label: 'GitHub',
@@ -90,11 +91,19 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Raptor.`,
         links: [
           {
-            title: 'Guides',
+            title: 'Docs',
             items: [
               {
+                label: 'Introduction',
+                to: '/docs/',
+              },
+              {
                 label: 'Getting started',
-                to: '/docs/guides/getting-started-with-labsdk-ipynb',
+                to: '/docs/getting-started-ipynb',
+              },
+              {
+                label: 'Core concepts',
+                to: '/docs/concepts/',
               },
             ],
           },
@@ -103,7 +112,11 @@ const config = {
             items: [
               {
                 label: 'Reference',
-                to: '/docs/reference/how-does-raptor-work',
+                to: '/reference/how-does-raptor-work',
+              },
+              {
+                label: 'LabSDK decorators',
+                to: '/reference/labsdk/decorators',
               },
             ],
           },
@@ -119,6 +132,10 @@ const config = {
               //   href: 'https://discordapp.com/invite/docusaurus',
               // },
               {
+                label: 'Slack community',
+                to: '/docs/community',
+              },
+              {
                 label: 'Twitter',
                 href: 'https://twitter.com/RaptorML',
               },
@@ -127,10 +144,10 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
               {
                 label: 'GitHub',
                 href: 'https://github.com/raptor-ml/raptor',
@@ -166,8 +183,21 @@ const config = {
         searchPagePath: 'search',
 
         //... other Algolia params
-      }
-    }),
+      },
+      metadata: [
+        {
+          name: 'keywords',
+          content: "raptor-ml, raptor, ml, machine learning, feature store, operational model, mlops, " +
+            "productization, deployment, data science, data engineering, data pipeline, prediction, inference, concepts, " +
+            "model serving, tabular data, time series, kubernetes, research, feature engineering, feature selection, " +
+            "feature extraction, feature transformation, feature aggregation, feature generation, feature enrichment, " +
+            "feature validation, devops, data ops, data science ops, data engineering ops, data science platform, " +
+            "data engineering platform, feature engineering platform, online, real-time, batch, offline, scalability, " +
+            "sagemaker, feast, feathr, mlflow, kubeflow, docker, backend, production, production-ready"
+        },
+      ],
+    },
+
 }
 
 module.exports = config

@@ -44,7 +44,7 @@ def hello_world(_, _) -> str:
 
 Pretty simple right? let's go through what we did here line by line:
 
-1. We started by declaring the [`@feature`](/docs/reference/labsdk/decorators). For now, we're not using any keys, so
+1. We started by declaring the [`@feature`](/reference/labsdk/decorators). For now, we're not using any keys, so
    we're passing an empty list.
 2. We define the feature's freshness:
     1. We set the `max_age` to `1m` - that means that feature value that calculated `1 minute` ago, is considered as
@@ -58,7 +58,7 @@ Pretty simple right? let's go through what we did here line by line:
    be discarded and recalculated.
 
    For more information about feature freshness, check out
-   the [Freshness](/docs/reference/how-does-raptor-work/freshness) section.
+   the [Freshness](/reference/how-does-raptor-work/freshness) section.
    :::
 3. We defined the feature's logic, and naming our feature `hello_world` and returning `str` primitive type.
 4. We defined the feature's description. This is a good place to put a description of the feature's logic that can help
@@ -87,7 +87,7 @@ The calculation context is a providing information about the calculation process
 * `timestamp` - the timestamp of the calculation.
 
 For more information about the calculation context, check out
-the [Context](/docs/reference/how-does-raptor-work/features/context) section.
+the [Context](/reference/how-does-raptor-work/features/context) section.
 :::
 
 # Connecting the feature to data source
@@ -113,7 +113,7 @@ class User(TypedDict):
 
 Data sources are composed of:
 
-1. Declaring the data source using the [`@data_source`](/docs/reference/labsdk/decorators) decorator.
+1. Declaring the data source using the [`@data_source`](/reference/labsdk/decorators) decorator.
     1. In line 4, we're configuring the `training_data` to be a pandas dataframe, that contains the data that we'll use
        to train the model. We can use pandas to import the data from any format that pandas supports, such as CSV,
        Parquet, JSON, etc

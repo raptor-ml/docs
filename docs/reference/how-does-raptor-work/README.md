@@ -6,7 +6,7 @@ Raptor takes care of the engineering concerns of implementing the "desired state
 Kubernetes-native resources such as deployments to connect your production data-sources and to run your business logic
 at scale.
 
-![High level architecture](./../../assets/high-level-diagram.png)
+![High level architecture](pathname:///assets/high-level-diagram.png)
 
 To achieve that, Raptor must understand the logic of your asset and create the engineering setup required for the
 production version.
@@ -24,7 +24,7 @@ finally make DS resources an integral part of your RND.
 
 After the Assets have been deployed to your cluster, Raptor Operator automatically discovers them and uses
 the relevant [Builder](./how-does-raptor-work/feature-builders) to configure the resources needed for the Feature. Such
-resources include [DataSource](/docs/reference/how-does-raptor-work/datasources) to external sources, storage
+resources include [DataSource](/reference/how-does-raptor-work/datasources) to external sources, storage
 resources, and compute resources.
 
 Finally, after the Assets are deployed, you can access the Feature Values and Model predictions using the REST or gRPC

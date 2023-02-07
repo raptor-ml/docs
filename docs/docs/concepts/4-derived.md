@@ -23,7 +23,7 @@ def views_purchases_rate(**req: RaptorRequest):
     return views / purchases
 ```
 
-In this code, we're using the [`feature_get()`](/docs/reference/how-does-raptor-work/features/context#get-feature) function to request
+In this code, we're using the [`feature_get()`](/reference/how-does-raptor-work/features/context#get-feature) function to request
 the values of `views.default[count]` and `purchases.default[count]` for our `entity_id`. Then, we are returning the rate
 of the two. Simple right?
 

@@ -173,7 +173,7 @@ A feature definition is a Python handler function that process a calculation req
 The function signature of a feature definition must accept two arguments:
 
 1. `this_row` - A dictionary of the current row (this is reflects the schema of the data source).
-2. `Context` - A dictionary of the context. See [Context](/docs/reference/how-does-raptor-work/features/context) for
+2. `Context` - A dictionary of the context. See [Context](/reference/how-does-raptor-work/features/context) for
    more details.
 
 It must use a return type annotation to indicate the primitive type of the feature value.

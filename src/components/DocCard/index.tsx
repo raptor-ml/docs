@@ -5,12 +5,12 @@ import React from 'react'
 export default function DocCard({docId}:{docId:string}) {
   try {
     const doc = useDocById(docId ?? undefined);
-    const u = docId.endsWith("/readme") ? docId.substring(0, docId.length - "/readme".length) : docId;
+    const u = docId.toLowerCase().endsWith("/readme") ? docId.substring(0, docId.length - "/readme".length) : docId;
     return <p><DC item={{
       type: "link",
       label: doc.title,
       docId: docId,
-      href: "/docs/" + u
+      href: "/" + u
     }}/></p>
   } catch (e) {
     return <div className={'card padding--lg cardContainer margin-bottom--sm'}><b>Error:</b> {e.message}</div>
