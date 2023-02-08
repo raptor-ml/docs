@@ -1,5 +1,13 @@
 # How does Raptor work?
 
+:::note
+This section is considered an advanced topic, and it's not required to read it in order to start building
+production-ready models.
+
+Since most of the "heavy duty" work, and the complex parts are related to the "production running" - this section is
+mostly focused on it, and on the "Raptor Core" component.
+:::
+
 Raptor is extending Kubernetes to serve features and models in a production-grade manner. It's implementing the
 "Kubernetes Way," which advocates for writing the desired state and allows you to focus on writing the business logic.
 Raptor takes care of the engineering concerns of implementing the "desired state" by managing and controlling
