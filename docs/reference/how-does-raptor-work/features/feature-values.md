@@ -7,7 +7,7 @@ Feature values are always composed of the following parts:
 
 1. **Value** - The actual value of the feature, which is stored as the **primitive type**.
 2. **Timestamp** - The timestamp of the value, which is the time that the value was calculated.
-3. **Entity ID** - The ID of the entity that the value is calculated for (such as the user that have this data trait).
+3. **Keys** - An encoded version of the keys with the value, which is used to identify the value's owner in the State.
 
 ## How are they calculated?
 

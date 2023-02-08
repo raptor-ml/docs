@@ -73,6 +73,12 @@ const config = {
             position: 'left',
             label: 'Reference',
           },
+          {
+            type: 'doc',
+            docId: 'docs/community',
+            position: 'left',
+            label: 'Community',
+          },
           // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/raptor-ml/raptor',
