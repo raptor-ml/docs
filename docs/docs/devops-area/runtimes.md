@@ -1,5 +1,5 @@
 import E404 from "@site/docs/_404.mdx"
 
-# Streaming
+# Managing runtimes
 
-<E404 />
+<E404/>

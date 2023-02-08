@@ -1,8 +1,8 @@
 ---
 sidebar_position: 12
 ---
-import e404 from "./_404.mdx"
+import E404 from "@site/docs/_404.mdx"
 
 # Troubleshooting
 
-<e404 />
+<E404 />
