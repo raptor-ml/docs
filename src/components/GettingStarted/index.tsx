@@ -45,7 +45,7 @@ def spending_delta(this_row: BankTransaction, ctx: Context) -> float:
 const modelCode = `
 @model(
     keys='customer_id',
-    input_features=['total_spend+sum'],
+    input_features=['spending_delta+sum'],
     input_labels=[amount],
     model_framework='sklearn',
     model_server='sagemaker-ack',
