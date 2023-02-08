@@ -1,7 +1,7 @@
 ---
 title: The basics
 ---
-In this tutorial, we'll cover the basics of using the LabSDK to write features.
+In this tutorial, we'll cover the basics of LabSDK to write features and models.
 
 # Install the LabSDK
 
@@ -17,17 +17,6 @@ To use the LabSDK, you need to import it:
 ```python
 from raptor import *
 ```
-
-# Production mindset
-
-With Raptor, we're building models that are ready to be deployed and run in production. That's means that in
-production, unlike when we're looking at historical data, we can't see the future or ancient history only the presence.
-
-Because of that, when we're calculating features we need to think about the data we have available, and work in the
-context of it in a **transactional** approach("row-level"), instead of a batch approach("dataset-level"). This *tiny*
-shift in the mindset can help us to build models that run on production.
-
-To do that, we write functions that calculate the feature values for a given "row" of data.
 
 # Hello world feature
 

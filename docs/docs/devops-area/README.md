@@ -1,6 +1,6 @@
 ---
 id: install
-title: Installing Raptor on your Kubernetes cluster
+title: Installing Raptor Core
 sidebar_position: 5
 ---
 :::tip
