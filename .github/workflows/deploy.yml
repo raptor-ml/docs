@@ -43,7 +43,7 @@ jobs:
           fetch-depth: 1
           path: 'raptor'
           ref: 'master'
-      - name: Generatr LabSDK reference
+      - name: Autogenerate LabSDK reference
         run: |
           pipx run pydoc-markdown
 
