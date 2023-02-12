@@ -12,7 +12,7 @@ jobs:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
@@ -35,6 +35,17 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      - name: Checkout Raptor repo
+        uses: actions/checkout@v3
+        with:
+          repository: 'raptor-ml/raptor'
+          fetch-depth: 1
+          path: 'raptor'
+          ref: 'master'
+      - name: Generatr LabSDK reference
+        run: |
+          pipx run pydoc-markdown
 
       - name: Install project dependencies
         run: yarn install --immutable
