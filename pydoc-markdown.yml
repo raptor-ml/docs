@@ -1,7 +1,7 @@
 loaders:
   - type: python
     search_path:
-      - ./raptor/labsdk/raptor
+      - ../raptor/labsdk/raptor
 processors:
   - type: filter
     expression: not name.startswith('_') and default()
