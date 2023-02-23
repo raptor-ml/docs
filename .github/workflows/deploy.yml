@@ -41,7 +41,7 @@ jobs:
         with:
           repository: 'raptor-ml/raptor'
           fetch-depth: 1
-          path: '../raptor'
+          path: './raptor'
           ref: 'master'
       - name: Autogenerate LabSDK reference
         run: |
@@ -59,7 +59,7 @@ jobs:
 #         run: |
 #           curl -X 'POST' "https://converter.swagger.io/api/convert" \
 #             -H "Accept: application/yaml" -H "Content-Type: application/yaml" \
-#             --data-binary "@../raptor/api/proto/gen/go/apidocs.swagger.yaml" \
+#             --data-binary "@./raptor/api/proto/gen/go/apidocs.swagger.yaml" \
 #             -o ./openapi.yaml
 #         - name: Generate API reference
 #           run: |
