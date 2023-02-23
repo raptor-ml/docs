@@ -1,4 +1,3 @@
-[//]: # (This section will cover how to query features in production using the accessor API)
 # Querying Features and Models in production
 
 Get feature values in production is done using the Core API over gRPC or the REST API.
