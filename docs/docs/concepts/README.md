@@ -22,7 +22,7 @@ Raptor is built upon two main parts:
   You **don't** need to install the Raptor Core to start developing your features and models. This can be done later on,
   when you're ready to deploy your features to production.
 
-  Learn more about operating and installing Raptor Core in the ["For DevOps"](/docs/devops-area/) section.
+  Learn more about operating and installing Raptor Core in the ["Production"](/docs/production/) section.
   :::
 
 # What is the LabSDK?
@@ -49,4 +49,4 @@ Using the LabSDK we can develop our features and models simply as functions.
 We wrap's our functions with [decorators](/reference/labsdk/decorators.md) that specify the complex parts of our
 work.
 
-Learn more about how Raptor works in the [How does Raptor work?](/reference/how-does-raptor-work) section.
+Learn more about how Raptor works in the [How does Raptor work?](/docs/how-it-works) section.

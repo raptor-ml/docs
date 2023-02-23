@@ -48,9 +48,8 @@ const config = {
       },
     ],
   ],
-
-  themeConfig:
-  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  themeConfig: (
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
       colorMode: {
         respectPrefersColorScheme: true,
@@ -69,7 +68,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'reference/how-does-raptor-work/README',
+            docId: 'reference/README',
             position: 'left',
             label: 'Reference',
           },
@@ -111,6 +110,10 @@ const config = {
                 label: 'Core concepts',
                 to: '/docs/concepts/',
               },
+              {
+                label: 'How does Raptor work?',
+                to: '/docs/how-it-works/',
+              },
             ],
           },
           {
@@ -118,7 +121,7 @@ const config = {
             items: [
               {
                 label: 'Reference',
-                to: '/reference/how-does-raptor-work',
+                to: '/reference',
               },
               {
                 label: 'LabSDK decorators',
@@ -169,26 +172,18 @@ const config = {
       algolia: {
         // The application ID provided by Algolia
         appId: 'MPWPX5FK2F',
-
         // Public API key: it is safe to commit it
         apiKey: '4e405e6850a7ce6ee89845e365b282d9',
-
         indexName: 'raptor',
-
         // Optional: see doc section below
         contextualSearch: true,
-
         // Optional: Specify domains where the navigation should occur through window.location instead on history.push.
         // Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
         externalUrlRegex: undefined,
-
         // Optional: Algolia search parameters
         searchParameters: {},
-
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
-
-        //... other Algolia params
       },
       metadata: [
         {
@@ -202,8 +197,7 @@ const config = {
             "sagemaker, feast, feathr, mlflow, kubeflow, docker, backend, production, production-ready"
         },
       ],
-    },
-
+    }),
 }
 
 module.exports = config

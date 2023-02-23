@@ -1,4 +1,4 @@
-position: 0 # float position is supported
-label: 'How does Raptor Work?'
+position: 4 # float position is supported
+label: 'Extending Raptor'
 collapsible: true # make the category collapsible
 collapsed: true # keep the category open by default

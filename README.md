@@ -1,81 +1,49 @@
-# Website
+# Documentation for core/v1alpha1/types.proto
 
-This website, is used to document the [Raptor](https://raptor.ml) project.
+<a name="documentation-for-api-endpoints"></a>
+## Documentation for API Endpoints
 
-It is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+All URIs are relative to *http://localhost*
 
-### Installation
+| Class | Method | HTTP request | Description |
+|------------ | ------------- | ------------- | -------------|
+| *EngineServiceApi* | [**engineServiceAppend**](Apis/EngineServiceApi.md#engineserviceappend) | **POST** /{fqn}/append |  |
+*EngineServiceApi* | [**engineServiceFeatureDescriptor**](Apis/EngineServiceApi.md#engineservicefeaturedescriptor) | **HEAD** /{selector} |  |
+*EngineServiceApi* | [**engineServiceGet**](Apis/EngineServiceApi.md#engineserviceget) | **GET** /{selector} |  |
+*EngineServiceApi* | [**engineServiceIncr**](Apis/EngineServiceApi.md#engineserviceincr) | **POST** /{fqn}/incr |  |
+*EngineServiceApi* | [**engineServiceSet**](Apis/EngineServiceApi.md#engineserviceset) | **PUT** /{selector} |  |
+*EngineServiceApi* | [**engineServiceUpdate**](Apis/EngineServiceApi.md#engineserviceupdate) | **POST** /{selector} |  |
+| *RuntimeServiceApi* | [**runtimeServiceExecuteProgram**](Apis/RuntimeServiceApi.md#runtimeserviceexecuteprogram) | **POST** /program/{fqn} |  |
+*RuntimeServiceApi* | [**runtimeServiceLoadProgram**](Apis/RuntimeServiceApi.md#runtimeserviceloadprogram) | **POST** /program |  |
 
-```
-$ yarn
-```
 
-### Local Development
+<a name="documentation-for-models"></a>
+## Documentation for Models
 
-```
-$ yarn start
-```
+ - [RuntimeService_ExecuteProgram_request](./Models/RuntimeService_ExecuteProgram_request.md)
+ - [protobufAny](./Models/protobufAny.md)
+ - [rpcStatus](./Models/rpcStatus.md)
+ - [v1alpha1AggrFn](./Models/v1alpha1AggrFn.md)
+ - [v1alpha1AppendResponse](./Models/v1alpha1AppendResponse.md)
+ - [v1alpha1ExecuteProgramResponse](./Models/v1alpha1ExecuteProgramResponse.md)
+ - [v1alpha1FeatureDescriptor](./Models/v1alpha1FeatureDescriptor.md)
+ - [v1alpha1FeatureDescriptorResponse](./Models/v1alpha1FeatureDescriptorResponse.md)
+ - [v1alpha1FeatureValue](./Models/v1alpha1FeatureValue.md)
+ - [v1alpha1GetResponse](./Models/v1alpha1GetResponse.md)
+ - [v1alpha1IncrResponse](./Models/v1alpha1IncrResponse.md)
+ - [v1alpha1KeepPrevious](./Models/v1alpha1KeepPrevious.md)
+ - [v1alpha1List](./Models/v1alpha1List.md)
+ - [v1alpha1LoadProgramRequest](./Models/v1alpha1LoadProgramRequest.md)
+ - [v1alpha1LoadProgramResponse](./Models/v1alpha1LoadProgramResponse.md)
+ - [v1alpha1Primitive](./Models/v1alpha1Primitive.md)
+ - [v1alpha1Scalar](./Models/v1alpha1Scalar.md)
+ - [v1alpha1SetResponse](./Models/v1alpha1SetResponse.md)
+ - [v1alpha1SideEffect](./Models/v1alpha1SideEffect.md)
+ - [v1alpha1UpdateResponse](./Models/v1alpha1UpdateResponse.md)
+ - [v1alpha1Value](./Models/v1alpha1Value.md)
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Converting Notebook files to Markdown
-You can use the `yarn ipynb2md` command to convert a notebook file to a markdown files.
-It required [pandoc](https://pypi.org/project/pandoc/) to be installed on your machine.
+<a name="documentation-for-authorization"></a>
+## Documentation for Authorization
 
-The following script is allowing you to provide a few gadgets to implement Docusaurus functions in your notebook file:
-a. You can specify your page's "header metadata"/"frontmatter" by specifing a map of key-value pairs in the `metadata.docusaurus` section of the notebook file
-b. You can hide a cell by providing `"docusaurus_hide": true` in the cell's metadata section.
-
-```json
-{
-  "metadata": {
-    "docusaurus": {
-      "sidebar_position": 1,
-      "title": "Getting Started with the LabSDK",
-      "description": "Start writing features from your notebook in less than 5 minutes."
-    },
-    ...
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "source": [
-        "[↵ Back to the Docs](https://raptor.ml)\n",
-        "\n"
-      ],
-      "metadata": {
-        "id": "BK8SRO9PQ5VS",
-        "docusaurus_hide": true
-      }
-    },
-    ...
-  ]
-}
-```
-
-### Build
-
-To build the website, we need first to transform the `.ipynb` files to `.md` files. This is done by the `ipynb2md` script.
-
-The following steps are required to build the website:
-
-1. Install `pandoc`:
-```console
-brew install pandoc
-```
-
-2. Convert `.ipynb` files to `.md` files as specified above:
-```
-$ yarn ipynb2md
-```
-
-3. Build the website:
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory.
-
-### Deployment
-Commits that has being merged to the `master` branch are automatically deployed to the production. Please open a PR with
-your proposed changes.
+All endpoints do not require authorization.

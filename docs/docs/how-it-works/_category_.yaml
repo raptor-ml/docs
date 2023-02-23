@@ -1,3 +1,4 @@
-label: 'Reference (auto-generated)'
+position: 6 # float position is supported
+label: 'How does Raptor Work?'
 collapsible: true # make the category collapsible
 collapsed: true # keep the category open by default

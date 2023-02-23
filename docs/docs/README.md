@@ -62,8 +62,8 @@ We call this process "exporting to production", and it's the core of Raptor.
 To achieve this, you need to write your code in "the Raptor way", and use Raptor's decorators to mark your complex
 parts. This allows us to translate it later on, and to optimize it for production.
 
-To learn more [how does Raotor work](/reference/how-does-raptor-work), and how to write your code in "the Raptor way",
-read the ["How does Raptor work?"](/reference/how-does-raptor-work) section and the ["Concepts"](/docs/concepts/)
+To learn more [how does Raotor work](/docs/how-it-works), and how to write your code in "the Raptor way",
+read the ["How does Raptor work?"](/docs/how-it-works) section and the ["Concepts"](/docs/concepts/)
 section.
 
 ## Quick Example

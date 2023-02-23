@@ -41,7 +41,7 @@ jobs:
         with:
           repository: 'raptor-ml/raptor'
           fetch-depth: 1
-          path: 'raptor'
+          path: '../raptor'
           ref: 'master'
       - name: Autogenerate LabSDK reference
         run: |
@@ -54,6 +54,17 @@ jobs:
         uses: docker://pandoc/latex:2
         with:
           entrypoint: ./.github/ipynb2md.sh
+
+#       - name: Convert openapi2 to openapi3
+#         run: |
+#           curl -X 'POST' "https://converter.swagger.io/api/convert" \
+#             -H "Accept: application/yaml" -H "Content-Type: application/yaml" \
+#             --data-binary "@../raptor/api/proto/gen/go/apidocs.swagger.yaml" \
+#             -o ./openapi.yaml
+#         - name: Generate API reference
+#           run: |
+#             yarn docusaurus gen-api-docs all
+
 
       - name: Build website
         run: yarn build

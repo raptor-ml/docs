@@ -12,7 +12,7 @@ Feature values are always composed of the following parts:
 ## How are they calculated?
 
 When defining a feature, you should specify a [Data Source](../datasources/), which is a reference to the data that
-will be used to calculate the feature value, and a [Builder](../feature-builders/), which is the set of instructions
+will be used to calculate the feature value, and a [Builder](../../../reference/feature-builders/), which is the set of instructions
 that will be used to calculate the feature value.
 
 When a feature value is requested, respectfully to the [Freshness](../freshness.md), Raptor will use the Data Source to

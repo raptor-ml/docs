@@ -1,7 +1,7 @@
 loaders:
   - type: python
     search_path:
-      - ./raptor/labsdk/raptor
+      - ../raptor/labsdk/raptor
 processors:
   - type: filter
     expression: not name.startswith('_') and default()
@@ -11,6 +11,8 @@ processors:
 renderer:
   type: docusaurus
   docs_base_path: docs
-  relative_output_path: reference/labsdk/reference
+  relative_output_path: reference/labsdk
   relative_sidebar_path: sidebar.json
-  sidebar_top_level_label: 'Reference (auto-generated)'
+  sidebar_top_level_label: 'LabSDK (auto-generated)'
+  markdown:
+    escape_html_in_docstring: false
