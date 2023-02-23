@@ -24,7 +24,7 @@ def views_purchases_rate(_, ctx: Context) -> float:
   return views / purchases
 ```
 
-In this code, we're using the [`feature_get()`](/reference/how-does-raptor-work/features/context#get-feature) function
+In this code, we're using the [`feature_get()`](/docs/how-it-works/features/context#get-feature) function
 to request the values of `views+count` and `purchases+count` for our `user_id` key(by default, the function propagate
 the keys). Then, we return the rate of the two. Simple right?
 

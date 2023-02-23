@@ -3,7 +3,7 @@ title: Aggregations
 ---
 
 Aggregations are probably the most complex challenge while building a production-grade feature,
-they require a [special mechanism](/reference/how-does-raptor-work/features/aggregations.md) to handle the data in
+they require a [special mechanism](/docs/how-it-works/features/aggregations.md) to handle the data in
 production, but are relatively easy to implement in development.
 
 Fortunately, it's relatively easy to build aggregations in Raptor.

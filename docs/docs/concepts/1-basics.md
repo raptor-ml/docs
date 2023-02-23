@@ -47,7 +47,7 @@ Pretty simple right? let's go through what we did here line by line:
    be discarded and recalculated.
 
    For more information about feature freshness, check out
-   the [Freshness](/reference/how-does-raptor-work/freshness) section.
+   the [Freshness](/docs/how-it-works/freshness) section.
    :::
 3. We defined the feature's logic, and naming our feature `hello_world` and returning `str` primitive type.
 4. We defined the feature's description. This is a good place to put a description of the feature's logic that can help
@@ -76,7 +76,7 @@ The calculation context is a providing information about the calculation process
 * `timestamp` - the timestamp of the calculation.
 
 For more information about the calculation context, check out
-the [Context](/reference/how-does-raptor-work/features/context) section.
+the [Context](/docs/how-it-works/features/context) section.
 :::
 
 # Connecting the feature to data source

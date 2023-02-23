@@ -31,8 +31,8 @@ Kubernetes resource. Applying your DevOps policies like code-review or "staging 
 finally make DS resources an integral part of your RND.
 
 After the Assets have been deployed to your cluster, Raptor Operator automatically discovers them and uses
-the relevant [Builder](./how-does-raptor-work/feature-builders) to configure the resources needed for the Feature. Such
-resources include [DataSource](/reference/how-does-raptor-work/datasources) to external sources, storage
+the relevant Builder to configure the resources needed for the Feature. Such
+resources include [DataSource](/docs/how-it-works/datasources) to external sources, storage
 resources, and compute resources.
 
 Finally, after the Assets are deployed, you can access the Feature Values and Model predictions using the REST or gRPC

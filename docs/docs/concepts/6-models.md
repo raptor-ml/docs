@@ -31,7 +31,7 @@ You might notice that we're using a feature selector in the `input_features` fie
 
 When we want to add a feature that have an aggregation, we must use a selector to reference it: `<name>+<aggrFn>`.
 
-For more information, see [Feature Selectors](/reference/how-does-raptor-work/selectors.md).
+For more information, see [Feature Selectors](/docs/how-it-works/selectors.md).
 :::
 
 ## Getting the training data

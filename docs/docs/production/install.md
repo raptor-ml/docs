@@ -1,7 +1,7 @@
 ---
 id: install
 title: Installing Raptor Core
-sidebar_position: 5
+sidebar_position: 1
 ---
 :::tip
 **Raptor installation is not required for training purposes**.

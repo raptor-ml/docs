@@ -1,7 +1,7 @@
 # Aggregations
 
 Aggregations are a way to summarize data over a time window. They are used to calculate the feature value, and are
-defined in the [Builder](../feature-builders/) of the feature.
+defined in the [Builder](../../../reference/feature-builders/) of the feature.
 
 Since aggregations are quite complex to achieve in a production system, Raptor allow you to define them in a declarative
 way, and then it will take care of the implementation.

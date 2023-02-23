@@ -1,10 +1,10 @@
-position: 5 # float position is supported
-label: 'DevOps Area'
+position: 6 # float position is supported
+label: 'Production'
 collapsible: true # make the category collapsible
 collapsed: true # keep the category open by default
-className: devops
+className: prod
 #link:
 #  type: generated-index
 #  title: LabSDK
 customProps:
-  description: Installing and managing Raptor on production environments
+  description: Running the exported artifacts on production

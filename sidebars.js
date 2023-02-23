@@ -32,6 +32,11 @@ const sidebars = {
     },
     {
       type: 'link',
+      label: 'Raptor Core API',
+      href: 'https://petstore.swagger.io/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fraptor-ml%2Fraptor%2Fmaster%2Fapi%2Fproto%2Fgen%2Fgo%2Fapidocs.swagger.yaml',
+    },
+    {
+      type: 'link',
       label: 'Raptor Core reference',
       href: 'https://pkg.go.dev/github.com/raptor-ml/raptor',
     },

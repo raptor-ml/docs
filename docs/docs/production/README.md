@@ -1,9 +1,11 @@
 import DocCard from '@site/src/components/DocCard'
 
 
-# DevOps Area
+# Operating Raptor in Production
 
 This section contains information how to install and operate Raptor in production.
+
+It is oriented towards DevOps, SRE, Data Engineers and Managers that are responsible for operating Raptor in production.
 
 :::tip
 You **don't** to install Raptor in order to start building production-ready models.
@@ -21,9 +23,9 @@ and it's responsible for managing the Raptor models and features.
 
 <div class="row">
   <div class="col col--6">
-    <DocCard docId="docs/devops-area/install" />
+    <DocCard docId="docs/production/install" />
   </div>
   <div class="col col--6">
-    <DocCard docId="reference/how-does-raptor-work/README" />
+    <DocCard docId="docs/how-it-works/README" />
   </div>
 </div>
