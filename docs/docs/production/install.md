@@ -3,6 +3,7 @@ id: install
 title: Installing Raptor Core
 sidebar_position: 1
 ---
+
 :::tip
 **Raptor installation is not required for training purposes**.
 
@@ -94,6 +95,7 @@ The configuration parameters below can be used to customize Raptor deployments:
 | `--kubeconfig`                | `KUBECONFIG`                | `string`       | Paths to a kubeconfig. Only required if out-of-cluster.                                                                                                                            |
 | `--leader-elect`              | `LEADER_ELECT`              | `bool`         | Enable leader election for controller manager.Enabling this will ensure there is only one active controller manager.                                                               |
 | `--metrics-bind-address`      | `METRICS_BIND_ADDRESS`      | `string`       | The address the metric endpoint binds to. (default ":8080")                                                                                                                        |
+| `--metrics-secure-serving`    | `METRICS_SECURE_SERVING`    | `bool`         | Enable serving the metrics over HTTPS. (default true)                                                                                                                              |
 | `--no-webhooks`               | `NO_WEBHOOKS`               | `bool`         | Setting this flag will disable the K8s API webhook.                                                                                                                                |
 | `--notifier-provider`         | `NOTIFIER_PROVIDER`         | `string`       | The notifier provider. (default "redis")                                                                                                                                           |
 | `--production`                | `PRODUCTION`                | `bool`         | Set as production (default true)                                                                                                                                                   |
@@ -111,7 +113,6 @@ The configuration parameters below can be used to customize Raptor deployments:
 | `--state-provider`            | `STATE_PROVIDER`            | `string`       | The state provider. (default "redis")                                                                                                                                              |
 | `--usage-reporting`           | `USAGE_REPORTING`           | `bool`         | Allow us to anonymously report usage statistics to improve Raptor 🪄 (default true)                                                                                                |
 | `--usage-reporting-uid`       | `USAGE_REPORTING_UID`       | `string`       | Usage reporting Unique Identifier. You can use this to set a unique identifier for your cluster.                                                                                   |
-| `--watch-namespaces`          | `WATCH_NAMESPACES`          | `stringArray`  | Enable namespace-level only by specify a list of namespaces that the operator is watching. If not specify, the operator will run on cluster level.                                 |
 | `--zap-devel`                 | `ZAP_DEVEL`                 | `bool`         | Development Mode defaults(encoder=consoleEncoder,logLevel=Debug,stackTraceLevel=Warn). Production Mode defaults(encoder=jsonEncoder,logLevel=Info,stackTraceLevel=Error)           |
 | `--zap-encoder`               | `ZAP_ENCODER`               | `encoder`      | Zap log encoding (one of 'json' or 'console')                                                                                                                                      |
 | `--zap-log-level`             | `ZAP_LOG_LEVEL`             | `level`        | Zap Level to configure the verbosity of logging. Can be one of 'debug', 'info', 'error', or any integer value > 0 which corresponds to custom debug levels of increasing verbosity |
@@ -130,6 +131,7 @@ The configuration parameters below can be used to customize Raptor deployments:
 | `--kubeconfig`                 | `KUBECONFIG`                 | string       | Paths to a kubeconfig. Only required if out-of-cluster.                                                                                                                            |
 | `--leader-elect`               | `LEADER_ELECT`               | bool         | Enable leader election for controller manager.Enabling this will ensure there is only one active controller manager.                                                               |
 | `--metrics-bind-address`       | `METRICS_BIND_ADDRESS`       | string       | The address the metric endpoint binds to. (default ":8080")                                                                                                                        |
+| `--metrics-secure-serving`     | `METRICS_SECURE_SERVING`     | bool         | Enable serving the metrics over HTTPS. (default true)                                                                                                                              |
 | `--notifier-provider`          | `NOTIFIER_PROVIDER`          | string       | The notifier provider. (default "redis")                                                                                                                                           |
 | `--production`                 | `PRODUCTION`                 | bool         | Set as production (default true)                                                                                                                                                   |
 | `--redis` (alias `-r`)         | `REDIS`                      | stringArray  | Redis servers                                                                                                                                                                      |
