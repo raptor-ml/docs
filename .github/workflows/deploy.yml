@@ -47,7 +47,7 @@ jobs:
           pipx run pydoc-markdown
 
       - name: Install project dependencies
-        run: yarn install --immutable
+        run: yarn install
 
       - name: Convert ipynb files
         uses: docker://pandoc/latex:2
