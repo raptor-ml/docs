@@ -16,13 +16,12 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 21.x
           cache: yarn
 
-      - name: Set Yarn version to 3.x
+      - name: Set Yarn version to 4.x
         run: |
-          yarn set version berry
-          yarn set version 3.x
+          yarn set version 4.x
           yarn --version
 
       - name: Get yarn cache directory path
