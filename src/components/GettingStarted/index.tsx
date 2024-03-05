@@ -66,7 +66,7 @@ const Steps: SectionItem[] = [
     className: styles.install,
     disableParallax: true,
     items: [{
-      code: "pip install raptor-concepts",
+      code: "pip install raptor-labsdk",
       language: "shell",
       showLineNumbers: false,
     }],
