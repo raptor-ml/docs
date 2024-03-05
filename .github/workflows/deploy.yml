@@ -48,7 +48,7 @@ jobs:
           pipx run pydoc-markdown
 
       - name: Install project dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Convert ipynb files
         uses: docker://pandoc/latex:2
