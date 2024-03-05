@@ -2,7 +2,7 @@
 
 This website, is used to document the [Raptor](https://raptor.ml) project.
 
-It is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+It is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 

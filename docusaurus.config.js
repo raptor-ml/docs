@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const {themes} = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 const fauxRemarkEmbedder = require('@remark-embedder/core')
 const fauxOembedTransformer = require('@remark-embedder/transformer-oembed')
 const remarkEmbedder = fauxRemarkEmbedder.default
@@ -166,8 +167,9 @@ const config = {
         ],
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        additionalLanguages: ['bash', 'diff', 'json', 'python'],
       },
       algolia: {
         // The application ID provided by Algolia
